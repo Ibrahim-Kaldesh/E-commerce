@@ -7,32 +7,56 @@
 	},
 	"item": [
 		{
-			"name": "Product",
+			"name": "Book",
 			"item": [
 				{
-					"name": "Create - Product",
+					"name": "Create - Book",
 					"request": {
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"id\":2,\r\n    \"name\":\"Prod 2\",\r\n    \"description\":\"This is the second product\"\r\n}",
+							"raw": "{\r\n    \"id\":5,\r\n    \"title\":\"Book 5\",\r\n    \"description\":\"This is the fifth book\",\r\n    \"link\":\"Link of book 5\",\r\n    \"isAvailable\":true,\r\n    \"author\":\"author 2\",\r\n    \"category\":\"Category 3\",\r\n    \"publishedDate\": \"1970\",\r\n    \"coverImage\":\"Link of coverImage 5\",\r\n    \"users\":[]\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
 								}
 							}
 						},
-						"url": "http://localhost:3000/api/v1/products"
+						"url": "http://localhost:3000/api/v1/books"
 					},
 					"response": []
 				},
 				{
-					"name": "Show -All - Products",
+					"name": "Show -All - Books",
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": "http://localhost:3000/api/v1/products"
+						"url": "http://localhost:3000/api/v1/books"
+					},
+					"response": []
+				},
+				{
+					"name": "update - Book",
+					"request": {
+						"method": "PATCH",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Show - Single - Book",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Show - All - Users - Of - Single - Book",
+					"request": {
+						"method": "GET",
+						"header": []
 					},
 					"response": []
 				}
@@ -48,14 +72,14 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"id\":2,\r\n    \"name\":\"Prod 2\",\r\n    \"description\":\"This is the second product\"\r\n}",
+							"raw": "{\r\n    \"id\":5,\r\n    \"userName\":\"usr5\",\r\n    \"email\":\"usr5@gmail.com\",\r\n    \"password\":\"********\",\r\n    \"passwordConfirm\":\"********\",\r\n    \"profilePhoto\":\"link\",\r\n    \"Books\":[]\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
 								}
 							}
 						},
-						"url": "http://localhost:3000/api/v1/products"
+						"url": "http://localhost:3000/api/v1/users"
 					},
 					"response": []
 				},
@@ -64,11 +88,53 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": "http://localhost:3000/api/v1/products"
+						"url": "http://localhost:3000/api/v1/users"
+					},
+					"response": []
+				},
+				{
+					"name": "Add - Book",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:3000/api/v1/users/addBook/2/3"
+					},
+					"response": []
+				},
+				{
+					"name": "Remove - Book",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "http://localhost:3000/api/v1/users/removeBook/2/3"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete - User",
+					"request": {
+						"method": "DELETE",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Show - All - Books- Of - Single - User",
+					"request": {
+						"method": "GET",
+						"header": []
 					},
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "show - single - user",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
 		}
 	]
 }

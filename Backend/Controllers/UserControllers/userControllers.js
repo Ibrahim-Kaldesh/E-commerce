@@ -4,21 +4,6 @@ import { findBookById, finduserById } from "../../helpers/searchById.js";
 const users = readFromJson("./data/users.json");
 const books = readFromJson("./data/books.json");
 
-export const showAllUsers = function (req, res, next) {
-  try {
-    res.status(200).json({
-      status: "Success",
-      message: "All users showed successfully",
-      users,
-    });
-  } catch (e) {
-    res.status(400).json({
-      status: "fail !!",
-      message: e.message,
-    });
-  }
-};
-
 export const createUser = function (req, res, next) {
   try {
     if (!req.body) throw new Error("No Data !!");
@@ -41,6 +26,8 @@ export const createUser = function (req, res, next) {
     });
   }
 };
+
+export const showAllUsers = function (req, res, next) {};
 
 export const removeUser = function (req, res, next) {};
 export const showUserById = function (req, res, next) {};

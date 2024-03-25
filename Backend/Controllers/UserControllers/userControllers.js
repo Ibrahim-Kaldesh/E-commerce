@@ -28,7 +28,6 @@ export const createUser = function (req, res, next) {
 };
 
 export const showAllUsers = function (req, res, next) {};
-
 export const removeUser = function (req, res, next) {};
 export const showUserById = function (req, res, next) {};
 
@@ -113,3 +112,5 @@ export const removeBook = function (req, res, next) {
     });
   }
 };
+
+export const showAllBooksOfSingleUser = function (req, res, next) {};

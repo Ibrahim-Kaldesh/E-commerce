@@ -4,7 +4,7 @@ import { findBookById, finduserById } from "../../helpers/searchById.js";
 const users = readFromJson("./data/users.json");
 const books = readFromJson("./data/books.json");
 
-export const createUser = function (req, res, next) {
+export const createUser = async(req, res, next) => {
   try {
     if (!req.body) throw new Error("No Data !!");
 
@@ -13,7 +13,7 @@ export const createUser = function (req, res, next) {
     users.push(user);
 
     // update json file with new data
-    writeToJson("./data/users.json", users);
+    await writeToJson("./data/users.json", users);
 
     res.status(201).json({
       status: "Success !!",
@@ -27,11 +27,11 @@ export const createUser = function (req, res, next) {
   }
 };
 
-export const showAllUsers = function (req, res, next) {};
-export const removeUser = function (req, res, next) {};
-export const showUserById = function (req, res, next) {};
+export const showAllUsers = async(req, res, next) => {};
+export const removeUser = async(req, res, next) => {};
+export const showUserById = async(req, res, next) => {};
 
-export const addBook = function (req, res, next) {
+export const addBook = async(req, res, next) => {
   try {
     const user = finduserById(users, req);
     if (!user)
@@ -57,8 +57,8 @@ export const addBook = function (req, res, next) {
     user.books.push(book.id);
 
     // update json file with new data
-    writeToJson("./data/users.json", users);
-    writeToJson("./data/books.json", books);
+    await writeToJson("./data/users.json", users);
+    await writeToJson("./data/books.json", books);
 
     res.status(200).json({
       status: "Success !!",
@@ -72,7 +72,7 @@ export const addBook = function (req, res, next) {
   }
 };
 
-export const removeBook = function (req, res, next) {
+export const removeBook = async(req, res, next) => {
   try {
     const user = finduserById(users, req);
     if (!user)
@@ -98,8 +98,8 @@ export const removeBook = function (req, res, next) {
     user.books = user.books.filter((id) => id !== +req.params.bookId);
 
     // update json file with new data
-    writeToJson("./data/users.json", users);
-    writeToJson("./data/books.json", books);
+    await writeToJson("./data/users.json", users);
+    await writeToJson("./data/books.json", books);
 
     res.status(200).json({
       status: "Success !!",
@@ -113,4 +113,4 @@ export const removeBook = function (req, res, next) {
   }
 };
 
-export const showAllBooksOfSingleUser = function (req, res, next) {};
+export const showAllBooksOfSingleUser = async(req, res, next) => {};

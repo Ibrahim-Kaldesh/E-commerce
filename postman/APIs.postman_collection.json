@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "6f59eed3-9ad8-4258-a98a-c47630db9a9d",
+		"_postman_id": "b0184f13-d426-466a-a502-5cc183edc586",
 		"name": "APIs",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "30201384"
+		"_exporter_id": "32754840"
 	},
 	"item": [
 		{
@@ -45,16 +45,15 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/api/v1/books",
-							"protocol": "http",
+							"raw": "{{host}}/api/v1/books/",
 							"host": [
-								"localhost"
+								"{{host}}"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"v1",
-								"books"
+								"books",
+								""
 							]
 						}
 					},
@@ -88,7 +87,17 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": ""
+							"raw": "{{host}}/api/v1/books/showAllbooks/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"books",
+								"showAllbooks",
+								"1"
+							]
 						}
 					},
 					"response": []
@@ -267,7 +276,17 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": ""
+							"raw": "{{host}}/api/v1/users/showAllbooks/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"showAllbooks",
+								"1"
+							]
 						}
 					},
 					"response": []
@@ -284,6 +303,34 @@
 				}
 			},
 			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "host",
+			"value": "http://localhost:3000"
 		}
 	]
 }

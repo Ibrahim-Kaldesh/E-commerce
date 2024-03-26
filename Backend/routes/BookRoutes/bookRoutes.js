@@ -13,7 +13,6 @@ const bookRouter = express.Router();
 bookRouter.route("/").get(showAllBooks).post(createBook);
 
 bookRouter.get("/showAllbooks/:bookId", showAllUsersOfSingleBook);
-
 bookRouter
   .route("/:bookId")
   .patch(updateBookById)

@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "06a731b7-8f5b-4088-b2ae-d254ed73106f",
+		"_postman_id": "6f59eed3-9ad8-4258-a98a-c47630db9a9d",
 		"name": "APIs",
-		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
-		"_exporter_id": "29827163"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30201384"
 	},
 	"item": [
 		{
@@ -23,7 +23,19 @@
 								}
 							}
 						},
-						"url": "http://localhost:3000/api/v1/books"
+						"url": {
+							"raw": "http://localhost:3000/api/v1/books",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"books"
+							]
+						}
 					},
 					"response": []
 				},
@@ -32,7 +44,19 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": "http://localhost:3000/api/v1/books"
+						"url": {
+							"raw": "http://localhost:3000/api/v1/books",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"books"
+							]
+						}
 					},
 					"response": []
 				},
@@ -40,7 +64,10 @@
 					"name": "update - Book",
 					"request": {
 						"method": "PATCH",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": ""
+						}
 					},
 					"response": []
 				},
@@ -48,7 +75,10 @@
 					"name": "Show - Single - Book",
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": ""
+						}
 					},
 					"response": []
 				},
@@ -56,7 +86,63 @@
 					"name": "Show - All - Users - Of - Single - Book",
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete - Book",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/v1/books/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"books",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update - Book",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n        \"id\": 2,\r\n        \"title\": \"Book 2\",\r\n        \"description\": \"This is the second book\",\r\n        \"link\": \"Link of book 2\",\r\n        \"isAvailable\": true,\r\n        \"author\": \"author 1\",\r\n        \"category\": \"Category 3\",\r\n        \"publishedDate\": \"2007\",\r\n        \"coverImage\": \"Link of coverImage 2\",\r\n        \"users\": []\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/books/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"books",
+								"2"
+							]
+						}
 					},
 					"response": []
 				}
@@ -79,7 +165,19 @@
 								}
 							}
 						},
-						"url": "http://localhost:3000/api/v1/users"
+						"url": {
+							"raw": "http://localhost:3000/api/v1/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"users"
+							]
+						}
 					},
 					"response": []
 				},
@@ -88,7 +186,19 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": "http://localhost:3000/api/v1/users"
+						"url": {
+							"raw": "http://localhost:3000/api/v1/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"users"
+							]
+						}
 					},
 					"response": []
 				},
@@ -97,7 +207,22 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": "http://localhost:3000/api/v1/users/addBook/2/3"
+						"url": {
+							"raw": "http://localhost:3000/api/v1/users/addBook/2/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"addBook",
+								"2",
+								"3"
+							]
+						}
 					},
 					"response": []
 				},
@@ -106,7 +231,22 @@
 					"request": {
 						"method": "DELETE",
 						"header": [],
-						"url": "http://localhost:3000/api/v1/users/removeBook/2/3"
+						"url": {
+							"raw": "http://localhost:3000/api/v1/users/removeBook/2/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"removeBook",
+								"2",
+								"3"
+							]
+						}
 					},
 					"response": []
 				},
@@ -114,7 +254,10 @@
 					"name": "Delete - User",
 					"request": {
 						"method": "DELETE",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": ""
+						}
 					},
 					"response": []
 				},
@@ -122,7 +265,10 @@
 					"name": "Show - All - Books- Of - Single - User",
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": ""
+						}
 					},
 					"response": []
 				}
@@ -132,7 +278,10 @@
 			"name": "show - single - user",
 			"request": {
 				"method": "GET",
-				"header": []
+				"header": [],
+				"url": {
+					"raw": ""
+				}
 			},
 			"response": []
 		}

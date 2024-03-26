@@ -1,4 +1,5 @@
 import { readFromJson, writeToJson } from "../../helpers/readAndWrite.js";
+import { findBookById, finduserById } from "../../helpers/searchById.js";
 
 const books = readFromJson("./data/books.json");
 
@@ -25,9 +26,40 @@ export const createBook = function (req, res, next) {
   }
 };
 
-export const showAllBooks = function (req, res, next) {};
-export const deleteBook = function (req, res, next) {};
-export const showBookById = function (req, res, next) {};
+export const showAllBooks = function (req, res, next) {
+
+
+};
+
+export const deleteBook = async function (req, res, next) {
+  try{
+    const bookToDelete = findBookById(books, req)
+    console.log(bookToDelete)
+    if(!bookToDelete){
+      return res.status(404).json({
+        status: "fail",
+        message: "book not found !!"
+      })
+    }
+    const newBooks = books.filter(book =>{
+        return book != bookToDelete
+    })
+    console.log(newBooks)
+    await writeToJson("./data/books.json", newBooks)
+    res.status(200).json({
+      status: "Success !!",
+      message: "Book deleted successfully"
+    })
+  }
+  catch(e){
+    res.status(400).json({
+      status: "fail !!!",
+      message: e.message
+    })
+  }
+};
+
 export const updateBookById = function (req, res, next) {};
+export const showBookById = function (req, res, next) {};
 export const showAllUsersOfSingleBook = function (req, res, next) {};
 

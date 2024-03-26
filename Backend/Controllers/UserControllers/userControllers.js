@@ -4,7 +4,7 @@ import { findBookById, finduserById } from "../../helpers/searchById.js";
 const users = readFromJson("./data/users.json");
 const books = readFromJson("./data/books.json");
 
-export const createUser = async(req, res, next) => {
+export const createUser = async (req, res, next) => {
   try {
     if (!req.body) throw new Error("No Data !!");
 
@@ -27,11 +27,11 @@ export const createUser = async(req, res, next) => {
   }
 };
 
-export const showAllUsers = async(req, res, next) => {};
-export const removeUser = async(req, res, next) => {};
-export const showUserById = async(req, res, next) => {};
+export const showAllUsers = async (req, res, next) => {};
+export const removeUser = async (req, res, next) => {};
+export const showUserById = async (req, res, next) => {};
 
-export const addBook = async(req, res, next) => {
+export const addBook = async (req, res, next) => {
   try {
     const user = finduserById(users, req);
     if (!user)
@@ -72,7 +72,7 @@ export const addBook = async(req, res, next) => {
   }
 };
 
-export const removeBook = async(req, res, next) => {
+export const removeBook = async (req, res, next) => {
   try {
     const user = finduserById(users, req);
     if (!user)
@@ -113,4 +113,27 @@ export const removeBook = async(req, res, next) => {
   }
 };
 
-export const showAllBooksOfSingleUser = async(req, res, next) => {};
+export const showAllBooksOfSingleUser = async (req, res, next) => {
+  try {
+    const user = finduserById(users, req);
+    if (!user)
+      return res.status(404).json({
+        status: "fail",
+        message: "user not found !!",
+      });
+
+    // return the books only included in the user books
+    const userBooks = books.filter((book) => user.books.includes(book.id));
+
+    return res.status(200).json({
+      status: "Success !!",
+      message: "Books of the user retrieved successfully",
+      data: userBooks,
+    });
+  } catch (e) {
+    return res.status(400).json({
+      status: "fail",
+      message: e.message,
+    });
+  }
+};

@@ -26,7 +26,7 @@ export const createBook = function (req, res, next) {
   }
 };
 
-export const showAllBooks = function (req, res, next) {
+export const showAllBooks = async function (req, res, next) {
 
 
 };
@@ -66,9 +66,9 @@ export const updateBookById = async function (req, res, next) {
     const bookToUpdate = findBookById(books, req)
     let flag = 0;
     let newBooks = books
-    const newBook = req.body
+    const updatedBook = req.body
     newBooks = newBooks.map(book => {
-      if(book == bookToUpdate){flag = 1;  return newBook}
+      if (book == bookToUpdate) { flag = 1; return updatedBook }
       else return book
     })
     if (!flag) {
@@ -91,7 +91,27 @@ export const updateBookById = async function (req, res, next) {
     })
   }
 };
-export const showBookById = function (req, res, next) { };
+export const showBookById = function (req, res, next) {
+  const bookToShow = findBookById(books, req)
+  if(!bookToShow){
+    return res.status(404).json({
+      status: "fail",
+      message: "book not found !!"
+    })
+  }
+  try {
+    res.status(200).json({
+      status: "Success !!",
+      data: bookToShow
+    })
+  }
+  catch (e) {
+    res.status(400).json({
+      status: "fail !!",
+      message: e.message
+    })
+  }
+};
 
 export const showAllUsersOfSingleBook = function (req, res, next) { };
 

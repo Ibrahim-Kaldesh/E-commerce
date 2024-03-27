@@ -27,9 +27,72 @@ export const createUser = async (req, res, next) => {
   }
 };
 
-export const showAllUsers = async (req, res, next) => {};
-export const removeUser = async (req, res, next) => {};
-export const showUserById = async (req, res, next) => {};
+export const showAllUsers = async (req, res, next) => {
+  try {
+    res.status(200).json({
+      status: "Success",
+      message: "Users showed successfully",
+      users,
+    });
+  } catch (e) {
+    res.status(400).json({
+      status: "fail!!",
+      message: e.message,
+    });
+  }
+};
+export const removeUser = async (req, res, next) => {
+  try {
+    const userId = +req.params.userId;
+ 
+    const idx = users.findIndex((u) => u.id === userId);
+    users.splice(idx, 1);
+ 
+    const newBooks = books.map((b) => {
+      if (b.users.includes(userId)) {
+        b.users = b.users.filter((id) => id !== userId);
+      }
+      return b;
+    });
+ 
+    // update json file with new data
+    await writeToJson("./data/users.json", users);
+    await writeToJson("./data/books.json", newBooks);
+ 
+    res.status(203).json({
+      status: "Success",
+      message: "user deleted successfully",
+    });
+  } catch (e) {
+    res.status(400).json({
+      status: "fail !!",
+      message: e.message,
+    });
+  }
+};
+export const showUserById = async (req, res, next) => {
+  try {
+    const user = finduserById(users, req);
+ 
+    if (!user) {
+      return res.status(404).json({
+        status: "fail",
+        message: "User not found !!",
+      });
+    }
+ 
+    res.status(200).json({
+      status: "Success",
+      message: "User showed successfully",
+      user,
+    });
+  } catch (e) {
+    res.status(400).json({
+      status: "fail!!",
+      message: e.message,
+    });
+  }
+};
 
 export const addBook = async (req, res, next) => {
   try {

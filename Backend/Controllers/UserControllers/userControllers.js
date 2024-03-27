@@ -26,7 +26,6 @@ export const createUser = async (req, res, next) => {
     });
   }
 };
-
 export const showAllUsers = async (req, res, next) => {};
 export const removeUser = async (req, res, next) => {};
 export const showUserById = async (req, res, next) => {};
@@ -71,7 +70,6 @@ export const addBook = async (req, res, next) => {
     });
   }
 };
-
 export const removeBook = async (req, res, next) => {
   try {
     const user = finduserById(users, req);
@@ -112,7 +110,6 @@ export const removeBook = async (req, res, next) => {
     });
   }
 };
-
 export const showAllBooksOfSingleUser = async (req, res, next) => {
   try {
     const user = finduserById(users, req);

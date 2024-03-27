@@ -1,1 +1,29 @@
-[{"id":1,"userName":"usr1","email":"usr1@gmail.com","password":"********","passwordConfirm":"********","profilePhoto":"link","books":[3,1]},{"id":2,"userName":"usr2","email":"usr2@gmail.com","password":"********","passwordConfirm":"********","profilePhoto":"link","books":[1,2,3]},{"id":3,"userName":"usr3","email":"usr3@gmail.com","password":"********","passwordConfirm":"********","profilePhoto":"link","books":[]},{"id":4,"userName":"usr4","email":"usr4@gmail.com","password":"********","passwordConfirm":"********","profilePhoto":"link","books":[]},{"id":5,"userName":"usr5","email":"usr5@gmail.com","password":"********","passwordConfirm":"********","profilePhoto":"link","books":[]}]
+[
+  {
+    "id": 1,
+    "userName": "usr1",
+    "email": "usr1@gmail.com",
+    "password": "********",
+    "passwordConfirm": "********",
+    "profilePhoto": "link",
+    "books": [3, 1]
+  },
+  {
+    "id": 2,
+    "userName": "usr2",
+    "email": "usr2@gmail.com",
+    "password": "********",
+    "passwordConfirm": "********",
+    "profilePhoto": "link",
+    "books": [1, 2, 3]
+  },
+  {
+    "id": 3,
+    "userName": "usr3",
+    "email": "usr3@gmail.com",
+    "password": "********",
+    "passwordConfirm": "********",
+    "profilePhoto": "link",
+    "books": []
+  }
+]

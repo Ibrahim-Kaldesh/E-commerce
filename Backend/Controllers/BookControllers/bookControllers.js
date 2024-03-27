@@ -1,5 +1,5 @@
 import { readFromJson, writeToJson } from "../../helpers/readAndWrite.js";
-import { findBookById, finduserById } from "../../helpers/searchById.js";
+import { findBookById } from "../../helpers/searchById.js";
 
 const books = readFromJson("./data/books.json");
 const users = readFromJson("./data/users.json");
@@ -26,7 +26,6 @@ export const createBook = function (req, res, next) {
     });
   }
 };
-
 export const showAllBooks = async (req, res, next) => {
   try {
     return res.status(200).json({
@@ -41,7 +40,6 @@ export const showAllBooks = async (req, res, next) => {
     });
   }
 };
-
 export const deleteBook = async function (req, res, next) {
   try {
     const bookToDelete = findBookById(books, req);
@@ -68,7 +66,6 @@ export const deleteBook = async function (req, res, next) {
     });
   }
 };
-
 export const updateBookById = async function (req, res, next) {
   try {
     if (!req.body) throw new Error("No Data!!");
@@ -102,14 +99,15 @@ export const updateBookById = async function (req, res, next) {
   }
 };
 export const showBookById = function (req, res, next) {
-  const bookToShow = findBookById(books, req);
-  if (!bookToShow) {
-    return res.status(404).json({
-      status: "fail",
-      message: "book not found !!",
-    });
-  }
   try {
+    const bookToShow = findBookById(books, req);
+    if (!bookToShow) {
+      return res.status(404).json({
+        status: "fail",
+        message: "book not found !!",
+      });
+    }
+
     res.status(200).json({
       status: "Success !!",
       data: bookToShow,
@@ -121,7 +119,6 @@ export const showBookById = function (req, res, next) {
     });
   }
 };
-
 export const showAllUsersOfSingleBook = function (req, res, next) {
   try {
     const book = findBookById(books, req);

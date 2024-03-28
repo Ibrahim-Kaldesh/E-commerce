@@ -134,7 +134,6 @@ export const addBook = async (req, res, next) => {
     });
   }
 };
-
 export const removeBook = async (req, res, next) => {
   try {
     const user = finduserById(users, req);
@@ -175,7 +174,6 @@ export const removeBook = async (req, res, next) => {
     });
   }
 };
-
 export const showAllBooksOfSingleUser = async (req, res, next) => {
   try {
     const user = finduserById(users, req);

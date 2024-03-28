@@ -5,6 +5,8 @@ import {
   removeBook,
   showAllUsers,
   showAllBooksOfSingleUser,
+  showUserById,
+  removeUser,
 } from "../../Controllers/UserControllers/userControllers.js";
 
 const userRouter = express.Router();

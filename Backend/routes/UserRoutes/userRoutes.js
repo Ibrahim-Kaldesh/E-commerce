@@ -12,6 +12,7 @@ import {
 const userRouter = express.Router();
 
 userRouter.route("/").get(showAllUsers).post(createUser);
+userRouter.route("/:userId").get(showUserById).delete(removeUser);
 
 userRouter.get("/addBook/:userId/:bookId", addBook);
 userRouter.delete("/removeBook/:userId/:bookId", removeBook);

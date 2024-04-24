@@ -3,8 +3,5 @@ export const finduserById = function (users, req) {
 };
 
 export const findBookById = function (books, req) {
-  console.log(req.params.bookId)
-  const b =  books.find((b) => b.id === +req.params.bookId);
-  console.log(b)
-  return  b
+  return books.find((b) => b.id === +req.params.bookId);
 };

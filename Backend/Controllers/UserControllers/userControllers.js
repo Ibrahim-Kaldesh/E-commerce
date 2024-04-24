@@ -2,6 +2,7 @@ import { readFromJson, writeToJson } from "../../helpers/readAndWrite.js";
 import { findBookById, finduserById } from "../../helpers/searchById.js";
 import AppError from "../../util/appError.js";
 import { cathcAsync } from "../errorControllers/errorContollers.js";
+import userModel from "../../DB/Models/userModel/userModel.js";
 
 const users = readFromJson("./data/users.json");
 const books = readFromJson("./data/books.json");
@@ -11,11 +12,7 @@ export const createUser = cathcAsync(async (req, res, next) => {
     return next(new AppError("No Data", 400));
 
   // craete product and add it to products array
-  const user = req.body;
-  users.push(user);
-
-  // update json file with new data
-  await writeToJson("./data/users.json", users);
+  const user = await userModel.create(req.body);
 
   res.status(201).json({
     status: "Success !!",

@@ -8,6 +8,11 @@ import {
   showUserById,
   removeUser,
 } from "../../Controllers/UserControllers/userControllers.js";
+import {
+  uploadPicture,
+  resizeImage,
+  updateUserPhoto,
+} from "../../Controllers/UserControllers/userControllers.js";
 
 const userRouter = express.Router();
 
@@ -18,5 +23,12 @@ userRouter.get("/addBook/:userId/:bookId", addBook);
 userRouter.delete("/removeBook/:userId/:bookId", removeBook);
 
 userRouter.get("/showAllbooks/:userId", showAllBooksOfSingleUser);
+
+userRouter.post(
+  "/uploadprofilepicture",
+  uploadPicture,
+  resizeImage,
+  updateUserPhoto
+);
 
 export default userRouter;

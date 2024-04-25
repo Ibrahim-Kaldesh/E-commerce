@@ -3,9 +3,9 @@ import { findBookById, finduserById } from "../../helpers/searchById.js";
 import AppError from "../../util/appError.js";
 import { cathcAsync } from "../errorControllers/errorContollers.js";
 import userModel from "../../DB/Models/userModel/userModel.js";
-
-const users = readFromJson("./data/users.json");
-const books = readFromJson("./data/books.json");
+import multer from "multer";
+import sharp from "sharp";
+import bookModel from "../../DB/Models/bookModel/bookModel.js";
 
 export const createUser = cathcAsync(async (req, res, next) => {
   if (!Object.entries(req.body).length)
@@ -21,6 +21,8 @@ export const createUser = cathcAsync(async (req, res, next) => {
 });
 
 export const showAllUsers = cathcAsync(async (req, res, next) => {
+  const users = await userModel.find();
+
   res.status(200).json({
     status: "Success",
     message: "Users showed successfully",
@@ -64,21 +66,21 @@ export const showUserById = cathcAsync(async (req, res, next) => {
 });
 
 export const addBook = cathcAsync(async (req, res, next) => {
-  const user = finduserById(users, req);
+  const user = await userModel.findById(req.params.userId);
+
   if (!user) return next(new AppError("user not found !!", 404));
 
-  const book = findBookById(books, req);
+  const book = await bookModel.findById(req.params.bookId);
   if (!book) return next(new AppError("Book not found !!", 404));
 
-  if (book.users.includes(user.id))
+  if (book.users.includes(user._id))
     return next(new AppError("Book already exists", 400));
 
-  book.users.push(user.id);
-  user.books.push(book.id);
+  book.users.push(user._id);
+  user.books.push(book._id);
 
-  // update json file with new data
-  await writeToJson("./data/users.json", users);
-  await writeToJson("./data/books.json", books);
+  await book.save({ validateBeforeSave: false });
+  await user.save({ validateBeforeSave: false });
 
   res.status(200).json({
     status: "Success !!",
@@ -87,21 +89,20 @@ export const addBook = cathcAsync(async (req, res, next) => {
 });
 
 export const removeBook = cathcAsync(async (req, res, next) => {
-  const user = finduserById(users, req);
+  const user = await userModel.findById(req.params.userId);
   if (!user) return next(new AppError("user not found !!", 404));
 
-  const book = findBookById(books, req);
+  const book = await bookModel.findById(req.params.bookId);
   if (!book) return next(new AppError("Book not found !!", 404));
 
-  if (!book.users.includes(user.id))
+  if (!book.users.includes(user._id))
     return next(new AppError("Book doesn't exists !!", 400));
 
-  book.users = book.users.filter((id) => id !== +req.params.userId);
-  user.books = user.books.filter((id) => id !== +req.params.bookId);
+  book.users = book.users.filter((id) => id != req.params.userId);
+  user.books = user.books.filter((id) => id != req.params.bookId);
 
-  // update json file with new data
-  await writeToJson("./data/users.json", users);
-  await writeToJson("./data/books.json", books);
+  await book.save({ validateBeforeSave: false });
+  await user.save({ validateBeforeSave: false });
 
   res.status(200).json({
     status: "Success !!",
@@ -120,5 +121,50 @@ export const showAllBooksOfSingleUser = cathcAsync(async (req, res, next) => {
     status: "Success !!",
     message: "Books of the user retrieved successfully",
     data: userBooks,
+  });
+});
+
+const multerStorage = multer.memoryStorage();
+
+const multerFilter = (req, file, cb) => {
+  if (file.mimetype.startsWith("image")) cb(null, true);
+  else
+    cb(
+      new AppError("Invlaid file format!!, please upload a photo", 400),
+      false
+    );
+};
+
+const upload = multer({
+  storage: multerStorage,
+  fileFilter: multerFilter,
+});
+
+export const uploadPicture = upload.single("photo");
+
+export const resizeImage = cathcAsync(async function (req, res, next) {
+  req.filename = `user-${req.body.userId}-${Date.now()}.jpeg`;
+
+  await sharp(req.file.buffer)
+    .resize(500, 500)
+    .toFormat("jpeg")
+    .jpeg({ quality: 90 })
+    .toFile(`./public/images/${req.filename}`);
+
+  next();
+});
+
+// Controllers for any user
+export const updateUserPhoto = cathcAsync(async function (req, res, next) {
+  const user = await userModel.findByIdAndUpdate(
+    req.body.userId,
+    { profilePhoto: req.filename },
+    { new: true, runValidators: true }
+  );
+
+  res.status(200).json({
+    user,
+    status: "success",
+    message: "Photo uploaded successfully.",
   });
 });

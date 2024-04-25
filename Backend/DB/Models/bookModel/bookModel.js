@@ -1,23 +1,64 @@
-/*  
-  This is the Object of Book
+import mongoose from "mongoose";
 
+const bookSchema = new mongoose.Schema(
   {
-    "id" : 1,
-    "title" : "Book 1",
-    "description" : "This is the first book",
-    "link":"Link of book 1",
-    "isAvailable":true,
-    "author":"author 1",
-    "category":"Category 4"
-    "publishedDate": "2023",
-    "coverImage":"Link of coverImage 1",
-
-    -> All users that add this book to its acc
-    "users":[               
-      userId1,
-      userId2,
-      userId3,
-      userId4
+    title: {
+      type: String,
+      trim: true,
+      required: [true, "A book must have a title"],
+    },
+    description: {
+      type: String,
+      trim: true,
+    },
+    description: {
+      type: String,
+      trim: true,
+    },
+    isAvailable: {
+      type: Boolean,
+      default: false,
+      enum: {
+        values: [true, false],
+        message: "Invalid type must be boolean",
+      },
+    },
+    author: {
+      type: String,
+      trim: true,
+      required: [true, "A book must have an author"],
+    },
+    category: {
+      type: String,
+      trim: true,
+    },
+    publishedDate: {
+      type: Date,
+      required: [true, "A book must have a published date"],
+    },
+    users: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User",
+      },
     ],
+  },
+  {
+    timestamps: true,
+    toJSON: { virtuals: true },
+    toObject: { virtuals: true },
   }
-*/
+);
+
+// bookSchema.pre(/^find/, function (next) {
+//   this.populate({
+//     path: "users",
+//     select: "userName books",
+//   });
+
+//   next();
+// });
+
+const bookModel = mongoose.model("Book", bookSchema);
+
+export default bookModel;

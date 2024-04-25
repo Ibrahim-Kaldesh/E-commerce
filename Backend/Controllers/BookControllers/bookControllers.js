@@ -2,20 +2,14 @@ import { readFromJson, writeToJson } from "../../helpers/readAndWrite.js";
 import { findBookById } from "../../helpers/searchById.js";
 import { cathcAsync } from "../errorControllers/errorContollers.js";
 import AppError from "../../util/appError.js";
+import bookModel from "../../DB/Models/bookModel/bookModel.js";
 
-const books = readFromJson("./data/books.json");
-const users = readFromJson("./data/users.json");
-
-export const createBook = cathcAsync(function (req, res, next) {
+export const createBook = cathcAsync(async function (req, res, next) {
   if (!Object.entries(req.body).length)
     return next(new AppError("No Data", 400));
 
   // craete product and add it to products array
-  const book = req.body;
-  books.push(book);
-
-  // update json file with new data
-  writeToJson("./data/books.json", books);
+  const book = await bookModel.create(req.body);
 
   res.status(201).json({
     status: "Success !!",
@@ -24,6 +18,8 @@ export const createBook = cathcAsync(function (req, res, next) {
 });
 
 export const showAllBooks = cathcAsync(async (req, res, next) => {
+  const books = await bookModel.find();
+
   return res.status(200).json({
     status: "Success !!",
     message: "All books retrieved successfully",

@@ -10,7 +10,7 @@ const userSchema = new mongoose.Schema(
       required: [true, "A user must have a user_name"],
       unique: true,
       validate: {
-        validator() {
+        validator(val) {
           /*
           [a-zA-Z0-9]{2,49}: This part defines the allowed characters and their repetition.
           [a-zA-Z0-9]: Matches a single character that's either a letter 
@@ -21,7 +21,7 @@ const userSchema = new mongoose.Schema(
           50: Maximum number of repetitions (ensures no more than 50 characters).
           */
           const regex = /^[a-zA-Z][a-zA-Z0-9]{3,50}$/;
-          return regex.test(this.userName);
+          return regex.test(val);
         },
         message: "Invalid user_name",
       },
@@ -91,6 +91,14 @@ const userSchema = new mongoose.Schema(
   }
 );
 
+userSchema.pre("save", async function (next) {
+  if (this.isNew) {
+    this.password = await bcrypt.hash(this.password, 12);
+    this.passwordConfirm = this.password;
+  }
+  next();
+});
+
 // userSchema.pre(/^find/, function (next) {
 //   this.populate({
 //     path: "books",
@@ -100,12 +108,10 @@ const userSchema = new mongoose.Schema(
 //   next();
 // });
 
-userSchema.pre("save", async function (next) {
-  if (this.isNew) {
-    this.password = await bcrypt.hash(this.password, 12);
-    this.passwordConfirm = this.password;
-  }
-  next();
+userSchema.virtual("ratings", {
+  ref: "Rating",
+  localField: "_id",
+  foreignField: "user",
 });
 
 const userModel = mongoose.model("User", userSchema);

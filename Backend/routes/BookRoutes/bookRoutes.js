@@ -6,6 +6,7 @@ import {
   showBookById,
   deleteBook,
   showAllUsersOfSingleBook,
+  showAllRatingsOfSingleBook,
 } from "../../Controllers/BookControllers/bookControllers.js";
 
 const bookRouter = express.Router();
@@ -13,6 +14,8 @@ const bookRouter = express.Router();
 bookRouter.route("/").get(showAllBooks).post(createBook);
 
 bookRouter.get("/showAllbooks/:bookId", showAllUsersOfSingleBook);
+bookRouter.get("/showAllRatings/:bookId", showAllRatingsOfSingleBook);
+
 bookRouter
   .route("/:bookId")
   .patch(updateBookById)

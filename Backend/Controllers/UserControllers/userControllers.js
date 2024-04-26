@@ -1,5 +1,5 @@
-import { readFromJson, writeToJson } from "../../helpers/readAndWrite.js";
-import { findBookById, finduserById } from "../../helpers/searchById.js";
+import { writeToJson } from "../../helpers/readAndWrite.js";
+import { finduserById } from "../../helpers/searchById.js";
 import AppError from "../../util/appError.js";
 import { cathcAsync } from "../errorControllers/errorContollers.js";
 import userModel from "../../DB/Models/userModel/userModel.js";
@@ -53,8 +53,24 @@ export const removeUser = cathcAsync(async (req, res, next) => {
   });
 });
 
+export const updateUserProfile = cathcAsync(async function (req, res, next) {
+  let user = await userModel.findById(req.params.userId);
+  if (!user) return next(new AppError("User not found !!", 404));
+
+  user = await userModel.findByIdAndUpdate(req.params.userId, req.body, {
+    new: true,
+    runValidators: true,
+  });
+
+  res.status(200).json({
+    status: "Success !!",
+    message: "User updated successfully",
+    user,
+  });
+});
+
 export const showUserById = cathcAsync(async (req, res, next) => {
-  const user = finduserById(users, req);
+  const user = await userModel.findById(req.params.userId);
 
   if (!user) return next(new AppError("user not found !!", 404));
 
@@ -124,6 +140,18 @@ export const showAllBooksOfSingleUser = cathcAsync(async (req, res, next) => {
   });
 });
 
+export const showAllRatingsOfSingleUser = cathcAsync(async (req, res, next) => {
+  const user = await userModel.findById(req.params.userId).populate("ratings");
+
+  if (!user) return next(new AppError("user not found !!", 404));
+
+  res.status(200).json({
+    status: "Success",
+    message: "User showed successfully",
+    user,
+  });
+});
+
 const multerStorage = multer.memoryStorage();
 
 const multerFilter = (req, file, cb) => {
@@ -156,7 +184,10 @@ export const resizeImage = cathcAsync(async function (req, res, next) {
 
 // Controllers for any user
 export const updateUserPhoto = cathcAsync(async function (req, res, next) {
-  const user = await userModel.findByIdAndUpdate(
+  let user = await userModel.findById(req.body.userId);
+  if (!user) return next(new AppError("User not found !!", 404));
+
+  user = await userModel.findByIdAndUpdate(
     req.body.userId,
     { profilePhoto: req.filename },
     { new: true, runValidators: true }

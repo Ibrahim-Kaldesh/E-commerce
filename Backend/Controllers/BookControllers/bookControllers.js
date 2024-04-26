@@ -1,4 +1,4 @@
-import { readFromJson, writeToJson } from "../../helpers/readAndWrite.js";
+import { writeToJson } from "../../helpers/readAndWrite.js";
 import { findBookById } from "../../helpers/searchById.js";
 import { cathcAsync } from "../errorControllers/errorContollers.js";
 import AppError from "../../util/appError.js";
@@ -79,7 +79,11 @@ export const showBookById = cathcAsync(function (req, res, next) {
   });
 });
 
-export const showAllUsersOfSingleBook = cathcAsync(function (req, res, next) {
+export const showAllUsersOfSingleBook = cathcAsync(async function (
+  req,
+  res,
+  next
+) {
   const book = findBookById(books, req);
   if (!book) return next(new AppError("Book not found !!", 404));
 
@@ -90,5 +94,21 @@ export const showAllUsersOfSingleBook = cathcAsync(function (req, res, next) {
     status: "Success !!",
     message: "All users of the book retrieved successfully",
     data: allUsersOfBook,
+  });
+});
+
+export const showAllRatingsOfSingleBook = cathcAsync(async function (
+  req,
+  res,
+  next
+) {
+  const bookToShow = await bookModel
+    .findById(req.params.bookId)
+    .populate("ratings");
+  if (!bookToShow) return next(new AppError("Book not found !!", 404));
+
+  res.status(200).json({
+    status: "Success !!",
+    data: bookToShow,
   });
 });

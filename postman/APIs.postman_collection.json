@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "658c3db3-b037-4af7-8d76-bd19907e7c1d",
+		"_postman_id": "f4885c6e-06e8-491e-9c46-9a6f1e422340",
 		"name": "APIs",
-		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
-		"_exporter_id": "29827163"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32754840"
 	},
 	"item": [
 		{
@@ -23,7 +23,19 @@
 								}
 							}
 						},
-						"url": "http://localhost:3000/api/v1/books"
+						"url": {
+							"raw": "http://localhost:3000/api/v1/books",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"books"
+							]
+						}
 					},
 					"response": []
 				},
@@ -32,7 +44,17 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": "{{host}}/api/v1/books"
+						"url": {
+							"raw": "{{host}}/api/v1/books",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"books"
+							]
+						}
 					},
 					"response": []
 				},
@@ -41,7 +63,9 @@
 					"request": {
 						"method": "PATCH",
 						"header": [],
-						"url": ""
+						"url": {
+							"raw": ""
+						}
 					},
 					"response": []
 				},
@@ -50,7 +74,9 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": ""
+						"url": {
+							"raw": ""
+						}
 					},
 					"response": []
 				},
@@ -59,7 +85,19 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": "{{host}}/api/v1/books/showAllbooks/1"
+						"url": {
+							"raw": "{{host}}/api/v1/books/showAllbooks/662abb0d5d91ff0fc4e2a32e",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"books",
+								"showAllbooks",
+								"662abb0d5d91ff0fc4e2a32e"
+							]
+						}
 					},
 					"response": []
 				},
@@ -68,7 +106,19 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": "{{host}}/api/v1/books/showAllRatings/662abb0d5d91ff0fc4e2a32e"
+						"url": {
+							"raw": "{{host}}/api/v1/books/showAllRatings/662abb0d5d91ff0fc4e2a32e",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"books",
+								"showAllRatings",
+								"662abb0d5d91ff0fc4e2a32e"
+							]
+						}
 					},
 					"response": []
 				},
@@ -77,7 +127,20 @@
 					"request": {
 						"method": "DELETE",
 						"header": [],
-						"url": "http://localhost:3000/api/v1/books/4"
+						"url": {
+							"raw": "http://localhost:3000/api/v1/books/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"books",
+								"4"
+							]
+						}
 					},
 					"response": []
 				},
@@ -95,7 +158,20 @@
 								}
 							}
 						},
-						"url": "http://localhost:3000/api/v1/books/2"
+						"url": {
+							"raw": "http://localhost:3000/api/v1/books/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"books",
+								"2"
+							]
+						}
 					},
 					"response": []
 				}
@@ -118,7 +194,19 @@
 								}
 							}
 						},
-						"url": "http://localhost:3000/api/v1/users"
+						"url": {
+							"raw": "http://localhost:3000/api/v1/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"users"
+							]
+						}
 					},
 					"response": []
 				},
@@ -136,7 +224,20 @@
 								}
 							}
 						},
-						"url": "http://localhost:3000/api/v1/users/662abfebf4e3ff758483049a"
+						"url": {
+							"raw": "http://localhost:3000/api/v1/users/662abfebf4e3ff758483049a",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"662abfebf4e3ff758483049a"
+							]
+						}
 					},
 					"response": []
 				},
@@ -160,7 +261,20 @@
 								}
 							]
 						},
-						"url": "http://localhost:3000/api/v1/users/uploadprofilepicture"
+						"url": {
+							"raw": "http://localhost:3000/api/v1/users/uploadprofilepicture",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"uploadprofilepicture"
+							]
+						}
 					},
 					"response": []
 				},
@@ -169,7 +283,20 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": "http://localhost:3000/api/v1/users/662abafa5d91ff0fc4e2a32c"
+						"url": {
+							"raw": "http://localhost:3000/api/v1/users/662abafa5d91ff0fc4e2a32c",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"662abafa5d91ff0fc4e2a32c"
+							]
+						}
 					},
 					"response": []
 				},
@@ -178,7 +305,20 @@
 					"request": {
 						"method": "DELETE",
 						"header": [],
-						"url": "http://localhost:3000/api/v1/users/7"
+						"url": {
+							"raw": "http://localhost:3000/api/v1/users/7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"7"
+							]
+						}
 					},
 					"response": []
 				},
@@ -187,7 +327,19 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": "http://localhost:3000/api/v1/users"
+						"url": {
+							"raw": "http://localhost:3000/api/v1/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"users"
+							]
+						}
 					},
 					"response": []
 				},
@@ -196,7 +348,22 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": "http://localhost:3000/api/v1/users/addBook/662abafa5d91ff0fc4e2a32c/662abb0d5d91ff0fc4e2a32e"
+						"url": {
+							"raw": "http://localhost:3000/api/v1/users/addBook/662abafa5d91ff0fc4e2a32c/662abb0d5d91ff0fc4e2a32e",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"addBook",
+								"662abafa5d91ff0fc4e2a32c",
+								"662abb0d5d91ff0fc4e2a32e"
+							]
+						}
 					},
 					"response": []
 				},
@@ -205,7 +372,22 @@
 					"request": {
 						"method": "DELETE",
 						"header": [],
-						"url": "http://localhost:3000/api/v1/users/removeBook/662abafa5d91ff0fc4e2a32c/662abb0d5d91ff0fc4e2a32e"
+						"url": {
+							"raw": "http://localhost:3000/api/v1/users/removeBook/662abafa5d91ff0fc4e2a32c/662abb0d5d91ff0fc4e2a32e",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"removeBook",
+								"662abafa5d91ff0fc4e2a32c",
+								"662abb0d5d91ff0fc4e2a32e"
+							]
+						}
 					},
 					"response": []
 				},
@@ -214,7 +396,19 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": "{{host}}/api/v1/users/showAllbooks/1"
+						"url": {
+							"raw": "{{host}}/api/v1/users/showAllbooks/662abafa5d91ff0fc4e2a32c",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"showAllbooks",
+								"662abafa5d91ff0fc4e2a32c"
+							]
+						}
 					},
 					"response": []
 				},
@@ -223,7 +417,19 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": "{{host}}/api/v1/users/showAllRatings/662abafa5d91ff0fc4e2a32c"
+						"url": {
+							"raw": "{{host}}/api/v1/users/showAllRatings/662abafa5d91ff0fc4e2a32c",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"showAllRatings",
+								"662abafa5d91ff0fc4e2a32c"
+							]
+						}
 					},
 					"response": []
 				}
@@ -246,7 +452,21 @@
 								}
 							}
 						},
-						"url": "http://localhost:3000/api/v1/ratings/662abafa5d91ff0fc4e2a32c/662abb0d5d91ff0fc4e2a32e"
+						"url": {
+							"raw": "http://localhost:3000/api/v1/ratings/662abafa5d91ff0fc4e2a32c/662abb0d5d91ff0fc4e2a32e",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"ratings",
+								"662abafa5d91ff0fc4e2a32c",
+								"662abb0d5d91ff0fc4e2a32e"
+							]
+						}
 					},
 					"response": []
 				},
@@ -267,7 +487,22 @@
 								}
 							}
 						},
-						"url": "http://localhost:3000/api/v1/ratings/662abfe3f4e3ff7584830498/662ac00bf4e3ff758483049c/662bb4f15b9ed306cca59416"
+						"url": {
+							"raw": "http://localhost:3000/api/v1/ratings/662abfe3f4e3ff7584830498/662ac00bf4e3ff758483049c/662bb4f15b9ed306cca59416",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"ratings",
+								"662abfe3f4e3ff7584830498",
+								"662ac00bf4e3ff758483049c",
+								"662bb4f15b9ed306cca59416"
+							]
+						}
 					},
 					"response": []
 				},
@@ -285,7 +520,22 @@
 								}
 							}
 						},
-						"url": "http://localhost:3000/api/v1/ratings/662abfe3f4e3ff7584830498/662ac00bf4e3ff758483049c/662baade343c3677540d97fd"
+						"url": {
+							"raw": "http://localhost:3000/api/v1/ratings/662abfe3f4e3ff7584830498/662ac00bf4e3ff758483049c/662baade343c3677540d97fd",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"ratings",
+								"662abfe3f4e3ff7584830498",
+								"662ac00bf4e3ff758483049c",
+								"662baade343c3677540d97fd"
+							]
+						}
 					},
 					"response": []
 				},
@@ -294,7 +544,19 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": "http://localhost:3000/api/v1/ratings"
+						"url": {
+							"raw": "http://localhost:3000/api/v1/ratings",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"ratings"
+							]
+						}
 					},
 					"response": []
 				}

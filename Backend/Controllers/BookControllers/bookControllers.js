@@ -84,17 +84,16 @@ export const showAllUsersOfSingleBook = cathcAsync(async function (
   res,
   next
 ) {
-  const bookId = req.params.bookId;
-  const book = await bookModel.findById(bookId);
+  const book = findBookById(books, req);
   if (!book) return next(new AppError("Book not found !!", 404));
 
-   // Populate the 'users' field to get the associated users
-   await book.populate("users").execPopulate();
+  const bookId = +req.params.bookId;
+  const allUsersOfBook = users.filter((user) => user.books.includes(bookId));
 
   res.status(200).json({
     status: "Success !!",
     message: "All users of the book retrieved successfully",
-    data: book.users,
+    data: allUsersOfBook,
   });
 });
 
@@ -111,5 +110,5 @@ export const showAllRatingsOfSingleBook = cathcAsync(async function (
   res.status(200).json({
     status: "Success !!",
     data: bookToShow,
-  });
+  });
 });

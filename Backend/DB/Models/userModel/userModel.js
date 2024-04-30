@@ -83,6 +83,7 @@ const userSchema = new mongoose.Schema(
         ref: "Book",
       },
     ],
+    tokens: [String],
   },
   {
     timestamps: true,
@@ -92,9 +93,15 @@ const userSchema = new mongoose.Schema(
 );
 
 userSchema.pre("save", async function (next) {
-  if (this.isNew) {
+  if (this.isModified("password")) {
     this.password = await bcrypt.hash(this.password, 12);
     this.passwordConfirm = this.password;
+
+    // change the last time the user has changed his password if it's old DOC
+    if (!this.isNew) {
+      this.tokens = [];
+      this.changedPasswordAt = new Date();
+    }
   }
   next();
 });

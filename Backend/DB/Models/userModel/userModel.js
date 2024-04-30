@@ -84,6 +84,10 @@ const userSchema = new mongoose.Schema(
       },
     ],
     tokens: [String],
+    changedPasswordAt: {
+      type: Date,
+      default: new Date(),
+    },
   },
   {
     timestamps: true,
@@ -91,6 +95,16 @@ const userSchema = new mongoose.Schema(
     toObject: { virtuals: true },
   }
 );
+
+userSchema.methods.passwordChangedAfter = function (jwtTimeStamp) {
+  if (this.changedPasswordAt) {
+    const changedPasswordTime = Math.floor(
+      this.changedPasswordAt.getTime() / 1000
+    );
+    return jwtTimeStamp < changedPasswordTime;
+  }
+  return false;
+};
 
 userSchema.pre("save", async function (next) {
   if (this.isModified("password")) {

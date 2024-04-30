@@ -163,13 +163,13 @@ const upload = multer({
 export const uploadPicture = upload.single("photo");
 
 export const resizeImage = cathcAsync(async function (req, res, next) {
-  req.filename = user-${req.body.userId}-${Date.now()}.jpeg;
+  req.filename = `user-${req.body.userId}-${Date.now()}.jpeg`;
 
   await sharp(req.file.buffer)
     .resize(500, 500)
     .toFormat("jpeg")
     .jpeg({ quality: 90 })
-    .toFile(./public/images/${req.filename});
+    .toFile(`./public/images/${req.filename}`);
 
   next();
 });

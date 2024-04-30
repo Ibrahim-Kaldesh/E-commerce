@@ -5,16 +5,21 @@ import {
   showAllRatings,
   showRatingById,
 } from "../../Controllers/RatingControllers/ratingControllers.js";
+import { userAuth } from "../../MiddleWare/Authentication/userAuthentication.js";
+import { admiAuth } from "../../MiddleWare/Authentication/adminAuthentication.js";
 
 const ratingRouter = express.Router();
 
-ratingRouter.get("/", showAllRatings);
+ratingRouter.use(userAuth);
 
-ratingRouter.post("/:userId/:bookId", createrating);
+ratingRouter.post("/:bookId", createrating);
 
 ratingRouter
-  .route("/:userId/:bookId/:ratingId")
+  .route("/:bookId/:ratingId")
   .get(showRatingById)
   .delete(removeRating);
+
+ratingRouter.use(admiAuth("admin"));
+ratingRouter.get("/", showAllRatings);
 
 export default ratingRouter;

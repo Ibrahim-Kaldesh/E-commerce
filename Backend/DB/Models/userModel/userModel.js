@@ -83,6 +83,15 @@ const userSchema = new mongoose.Schema(
         ref: "Book",
       },
     ],
+    role: {
+      type: String,
+      trim: true,
+      default: "user",
+      enum: {
+        values: ["user", "admin"],
+        message: "Invalid role !!",
+      },
+    },
     tokens: [String],
     changedPasswordAt: {
       type: Date,
@@ -95,6 +104,13 @@ const userSchema = new mongoose.Schema(
     toObject: { virtuals: true },
   }
 );
+
+userSchema.methods.correctPassword = async function (
+  candidatePassword,
+  currentPassword
+) {
+  return await bcrypt.compare(candidatePassword, currentPassword);
+};
 
 userSchema.methods.passwordChangedAfter = function (jwtTimeStamp) {
   if (this.changedPasswordAt) {

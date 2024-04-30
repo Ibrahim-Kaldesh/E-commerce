@@ -6,7 +6,7 @@ export const createrating = cathcAsync(async function (req, res, next) {
   let rating;
 
   const checkRatingExists = await ratingModel.findOne({
-    user: req.params.userId,
+    user: req.user._id,
     book: req.params.bookId,
   });
 
@@ -17,7 +17,7 @@ export const createrating = cathcAsync(async function (req, res, next) {
       { new: true, runValidators: true }
     );
   } else {
-    req.body.user = req.params.userId;
+    req.body.user = req.user._id;
     req.body.book = req.params.bookId;
 
     rating = await ratingModel.create(req.body);
@@ -31,7 +31,7 @@ export const createrating = cathcAsync(async function (req, res, next) {
 
 export const removeRating = cathcAsync(async function (req, res, next) {
   const checkRatingExists = await ratingModel.findOne({
-    user: req.params.userId,
+    user: req.user._id,
     book: req.params.bookId,
   });
 

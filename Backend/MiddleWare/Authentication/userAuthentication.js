@@ -134,3 +134,17 @@ export const changePassword = cathcAsync(async function (req, res, next) {
     message: "Password changed successfully",
   });
 });
+
+
+export const logOut = cathcAsync(async function (req, res, next) {
+  const tokens = req.user.tokens.filter((el) => el !== req.token);
+  await userModel.findByIdAndUpdate(
+    req.user.id,
+    { tokens },
+    { new: true, runValidators: true }
+  );
+  res.status(200).json({
+    status: "Success",
+    message: "logged out successfully",
+  });
+});

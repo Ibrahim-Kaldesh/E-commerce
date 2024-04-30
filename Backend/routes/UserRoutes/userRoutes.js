@@ -16,7 +16,27 @@ import {
   updateUserPhoto,
 } from "../../Controllers/UserControllers/userControllers.js";
 
+import {
+  signIn,
+  signUp,
+  logOut,
+  changePassword,
+} from "../../MiddleWare/Authentication/userAuthentication.js";
+
+import { userAuth } from "../../MiddleWare/Authentication/userAuthentication.js";
+import { admiAuth } from "../../MiddleWare/Authentication/adminAuthentication.js";
+
 const userRouter = express.Router();
+
+// Routes allowed for any user
+userRouter.post("/signup", signUp);
+userRouter.post("/signin", signIn);
+
+// Authenticaion Middleware
+userRouter.use(userAuth);
+
+userRouter.post("/changepassword", changePassword);
+userRouter.get("/logout", logOut);
 
 userRouter.route("/").get(showAllUsers).post(createUser);
 userRouter
@@ -25,8 +45,8 @@ userRouter
   .delete(removeUser)
   .patch(updateUserProfile);
 
-userRouter.get("/addBook/:userId/:bookId", addBook);
-userRouter.delete("/removeBook/:userId/:bookId", removeBook);
+userRouter.get("/addBook/:bookId", addBook);
+userRouter.delete("/removeBook/:bookId", removeBook);
 
 userRouter.get("/showAllbooks/:userId", showAllBooksOfSingleUser);
 userRouter.get("/showAllRatings/:userId", showAllRatingsOfSingleUser);
@@ -37,5 +57,13 @@ userRouter.post(
   resizeImage,
   updateUserPhoto
 );
+
+// Routes allowed only for admins
+
+// Authorization Middleware -> but we use authentication middleware above ...
+userRouter.use(admiAuth("admin"));
+
+userRouter.route("/").get(showAllUsers).post(createUser).delete(removeUser);
+userRouter.get("/:id", showUserById);
 
 export default userRouter;

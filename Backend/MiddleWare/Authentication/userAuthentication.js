@@ -36,3 +36,8 @@ const createSendToken = async function (user, statusCode, res) {
     token,
   });
 };
+
+export const signUp = cathcAsync(async function (req, res, next) {
+    const user = await userModel.create(req.body);
+    createSendToken(user, 201, res);
+  });

@@ -54,10 +54,7 @@ export const removeUser = cathcAsync(async (req, res, next) => {
 });
 
 export const updateUserProfile = cathcAsync(async function (req, res, next) {
-  let user = await userModel.findById(req.params.userId);
-  if (!user) return next(new AppError("User not found !!", 404));
-
-  user = await userModel.findByIdAndUpdate(req.params.userId, req.body, {
+  user = await userModel.findByIdAndUpdate(req.user._id, req.body, {
     new: true,
     runValidators: true,
   });
@@ -82,21 +79,17 @@ export const showUserById = cathcAsync(async (req, res, next) => {
 });
 
 export const addBook = cathcAsync(async (req, res, next) => {
-  const user = await userModel.findById(req.params.userId);
-
-  if (!user) return next(new AppError("user not found !!", 404));
-
   const book = await bookModel.findById(req.params.bookId);
   if (!book) return next(new AppError("Book not found !!", 404));
 
-  if (book.users.includes(user._id))
+  if (book.users.includes(req.user._id))
     return next(new AppError("Book already exists", 400));
 
-  book.users.push(user._id);
-  user.books.push(book._id);
+  book.users.push(req.user._id);
+  req.user.books.push(book._id);
 
   await book.save({ validateBeforeSave: false });
-  await user.save({ validateBeforeSave: false });
+  await req.user.save({ validateBeforeSave: false });
 
   res.status(200).json({
     status: "Success !!",
@@ -105,20 +98,19 @@ export const addBook = cathcAsync(async (req, res, next) => {
 });
 
 export const removeBook = cathcAsync(async (req, res, next) => {
-  const user = await userModel.findById(req.params.userId);
-  if (!user) return next(new AppError("user not found !!", 404));
-
   const book = await bookModel.findById(req.params.bookId);
   if (!book) return next(new AppError("Book not found !!", 404));
 
-  if (!book.users.includes(user._id))
+  if (!book.users.includes(req.user._id))
     return next(new AppError("Book doesn't exists !!", 400));
 
-  book.users = book.users.filter((id) => id != req.params.userId);
-  user.books = user.books.filter((id) => id != req.params.bookId);
+  book.users = book.users.filter((id) => {
+    return String(id) !== String(req.user._id);
+  });
+  req.user.books = req.user.books.filter((id) => id != req.params.bookId);
 
   await book.save({ validateBeforeSave: false });
-  await user.save({ validateBeforeSave: false });
+  await req.user.save({ validateBeforeSave: false });
 
   res.status(200).json({
     status: "Success !!",
@@ -127,15 +119,16 @@ export const removeBook = cathcAsync(async (req, res, next) => {
 });
 
 export const showAllBooksOfSingleUser = cathcAsync(async (req, res, next) => {
-
-  const user = await userModel.findById(req.params.userId).populate("books")
-
+  const user = finduserById(users, req);
   if (!user) return next(new AppError("user not found !!", 404));
+
+  // return the books only included in the user books
+  const userBooks = books.filter((book) => user.books.includes(book.id));
 
   return res.status(200).json({
     status: "Success !!",
     message: "Books of the user retrieved successfully",
-    data: user,
+    data: userBooks,
   });
 });
 
@@ -170,13 +163,13 @@ const upload = multer({
 export const uploadPicture = upload.single("photo");
 
 export const resizeImage = cathcAsync(async function (req, res, next) {
-  req.filename = `user-${req.body.userId}-${Date.now()}.jpeg`;
+  req.filename = user-${req.body.userId}-${Date.now()}.jpeg;
 
   await sharp(req.file.buffer)
     .resize(500, 500)
     .toFormat("jpeg")
     .jpeg({ quality: 90 })
-    .toFile(`./public/images/${req.filename}`);
+    .toFile(./public/images/${req.filename});
 
   next();
 });

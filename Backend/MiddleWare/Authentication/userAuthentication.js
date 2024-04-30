@@ -102,3 +102,35 @@ export const userAuth = cathcAsync(async function (req, res, next) {
   // Move to the next Middleware
   next();
 });
+
+
+export const changePassword = cathcAsync(async function (req, res, next) {
+  const { pass, newPass, newPassConfirm } = req.body;
+
+  if (!pass || !newPass || !newPassConfirm)
+    return next(
+      new AppError(
+        "Missing on of the values : (New password || Old Password || Confirm password)",
+        400
+      )
+    );
+
+  // get user data stored in the request
+  const user = await userModel.findById(req.user._id).select("+password");
+
+  // check if the password is correct
+  if (!(await user.correctPassword(pass, user.password)))
+    return next(new AppError("Incorrect Password", 400));
+
+  // save new password (check validity from DB Schema)
+  user.password = newPass;
+  user.passwordConfirm = newPassConfirm;
+
+  // save new user information (It will run .pre and and validation in user shcema)
+  await user.save();
+
+  res.status(200).json({
+    status: "Success",
+    message: "Password changed successfully",
+  });
+});

@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "f4885c6e-06e8-491e-9c46-9a6f1e422340",
+		"_postman_id": "8dae33f3-8404-4513-8014-026d70a047f8",
 		"name": "APIs",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "32754840"
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "29827163"
 	},
 	"item": [
 		{
@@ -12,6 +12,12 @@
 				{
 					"name": "Create - Book",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{jwt}}"
+							}
+						},
 						"method": "POST",
 						"header": [],
 						"body": {
@@ -23,38 +29,22 @@
 								}
 							}
 						},
-						"url": {
-							"raw": "http://localhost:3000/api/v1/books",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"api",
-								"v1",
-								"books"
-							]
-						}
+						"url": "http://localhost:3000/api/v1/books"
 					},
 					"response": []
 				},
 				{
 					"name": "Show -All - Books",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{jwt}}"
+							}
+						},
 						"method": "GET",
 						"header": [],
-						"url": {
-							"raw": "{{host}}/api/v1/books",
-							"host": [
-								"{{host}}"
-							],
-							"path": [
-								"api",
-								"v1",
-								"books"
-							]
-						}
+						"url": "{{host}}/api/v1/books"
 					},
 					"response": []
 				},
@@ -63,9 +53,7 @@
 					"request": {
 						"method": "PATCH",
 						"header": [],
-						"url": {
-							"raw": ""
-						}
+						"url": ""
 					},
 					"response": []
 				},
@@ -74,79 +62,64 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": {
-							"raw": ""
-						}
+						"url": ""
 					},
 					"response": []
 				},
 				{
 					"name": "Show - All - Users - Of - Single - Book",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{jwt}}"
+							}
+						},
 						"method": "GET",
 						"header": [],
-						"url": {
-							"raw": "{{host}}/api/v1/books/showAllbooks/662abb0d5d91ff0fc4e2a32e",
-							"host": [
-								"{{host}}"
-							],
-							"path": [
-								"api",
-								"v1",
-								"books",
-								"showAllbooks",
-								"662abb0d5d91ff0fc4e2a32e"
-							]
-						}
+						"url": "{{host}}/api/v1/books/showAllUsers/1"
 					},
 					"response": []
 				},
 				{
 					"name": "Show - All - Ratings- Of - Single - Book",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{jwt}}"
+							}
+						},
 						"method": "GET",
 						"header": [],
-						"url": {
-							"raw": "{{host}}/api/v1/books/showAllRatings/662abb0d5d91ff0fc4e2a32e",
-							"host": [
-								"{{host}}"
-							],
-							"path": [
-								"api",
-								"v1",
-								"books",
-								"showAllRatings",
-								"662abb0d5d91ff0fc4e2a32e"
-							]
-						}
+						"url": "{{host}}/api/v1/books/showAllRatings/662abb0d5d91ff0fc4e2a32e"
 					},
 					"response": []
 				},
 				{
 					"name": "Delete - Book",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{jwt}}"
+							}
+						},
 						"method": "DELETE",
 						"header": [],
-						"url": {
-							"raw": "http://localhost:3000/api/v1/books/4",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"api",
-								"v1",
-								"books",
-								"4"
-							]
-						}
+						"url": "http://localhost:3000/api/v1/books/4"
 					},
 					"response": []
 				},
 				{
 					"name": "Update - Book",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{jwt}}"
+							}
+						},
 						"method": "PATCH",
 						"header": [],
 						"body": {
@@ -158,20 +131,7 @@
 								}
 							}
 						},
-						"url": {
-							"raw": "http://localhost:3000/api/v1/books/2",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"api",
-								"v1",
-								"books",
-								"2"
-							]
-						}
+						"url": "http://localhost:3000/api/v1/books/2"
 					},
 					"response": []
 				}
@@ -180,36 +140,6 @@
 		{
 			"name": "User",
 			"item": [
-				{
-					"name": "Create - User",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"userName\":\"usr5\",\r\n    \"email\":\"usr5@gmail.com\",\r\n    \"password\":\"abcD123#\",\r\n    \"passwordConfirm\":\"abcD123#\",\r\n    \"profilePhoto\":\"link4\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:3000/api/v1/users",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"api",
-								"v1",
-								"users"
-							]
-						}
-					},
-					"response": []
-				},
 				{
 					"name": "Update - User",
 					"request": {
@@ -224,20 +154,7 @@
 								}
 							}
 						},
-						"url": {
-							"raw": "http://localhost:3000/api/v1/users/662abfebf4e3ff758483049a",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"api",
-								"v1",
-								"users",
-								"662abfebf4e3ff758483049a"
-							]
-						}
+						"url": "http://localhost:3000/api/v1/users/662abfebf4e3ff758483049a"
 					},
 					"response": []
 				},
@@ -261,175 +178,67 @@
 								}
 							]
 						},
-						"url": {
-							"raw": "http://localhost:3000/api/v1/users/uploadprofilepicture",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"api",
-								"v1",
-								"users",
-								"uploadprofilepicture"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "show - single - user",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:3000/api/v1/users/662abafa5d91ff0fc4e2a32c",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"api",
-								"v1",
-								"users",
-								"662abafa5d91ff0fc4e2a32c"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Delete - User",
-					"request": {
-						"method": "DELETE",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:3000/api/v1/users/7",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"api",
-								"v1",
-								"users",
-								"7"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Show -All - Users",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:3000/api/v1/users",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"api",
-								"v1",
-								"users"
-							]
-						}
+						"url": "http://localhost:3000/api/v1/users/uploadprofilepicture"
 					},
 					"response": []
 				},
 				{
 					"name": "Add - Book",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{jwt}}"
+							}
+						},
 						"method": "GET",
 						"header": [],
-						"url": {
-							"raw": "http://localhost:3000/api/v1/users/addBook/662abafa5d91ff0fc4e2a32c/662abb0d5d91ff0fc4e2a32e",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"api",
-								"v1",
-								"users",
-								"addBook",
-								"662abafa5d91ff0fc4e2a32c",
-								"662abb0d5d91ff0fc4e2a32e"
-							]
-						}
+						"url": "http://localhost:3000/api/v1/users/addBook/662abb0d5d91ff0fc4e2a32e"
 					},
 					"response": []
 				},
 				{
 					"name": "Remove - Book",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{jwt}}"
+							}
+						},
 						"method": "DELETE",
 						"header": [],
-						"url": {
-							"raw": "http://localhost:3000/api/v1/users/removeBook/662abafa5d91ff0fc4e2a32c/662abb0d5d91ff0fc4e2a32e",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"api",
-								"v1",
-								"users",
-								"removeBook",
-								"662abafa5d91ff0fc4e2a32c",
-								"662abb0d5d91ff0fc4e2a32e"
-							]
-						}
+						"url": "http://localhost:3000/api/v1/users/removeBook/662abb0d5d91ff0fc4e2a32e"
 					},
 					"response": []
 				},
 				{
 					"name": "Show - All - Books- Of - Single - User",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{jwt}}"
+							}
+						},
 						"method": "GET",
 						"header": [],
-						"url": {
-							"raw": "{{host}}/api/v1/users/showAllbooks/662abafa5d91ff0fc4e2a32c",
-							"host": [
-								"{{host}}"
-							],
-							"path": [
-								"api",
-								"v1",
-								"users",
-								"showAllbooks",
-								"662abafa5d91ff0fc4e2a32c"
-							]
-						}
+						"url": "{{host}}/api/v1/users/showAllbooks/1"
 					},
 					"response": []
 				},
 				{
 					"name": "Show - All - Ratings- Of - Single - User",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{jwt}}"
+							}
+						},
 						"method": "GET",
 						"header": [],
-						"url": {
-							"raw": "{{host}}/api/v1/users/showAllRatings/662abafa5d91ff0fc4e2a32c",
-							"host": [
-								"{{host}}"
-							],
-							"path": [
-								"api",
-								"v1",
-								"users",
-								"showAllRatings",
-								"662abafa5d91ff0fc4e2a32c"
-							]
-						}
+						"url": "{{host}}/api/v1/users/showAllRatings/662abafa5d91ff0fc4e2a32c"
 					},
 					"response": []
 				}
@@ -452,21 +261,7 @@
 								}
 							}
 						},
-						"url": {
-							"raw": "http://localhost:3000/api/v1/ratings/662abafa5d91ff0fc4e2a32c/662abb0d5d91ff0fc4e2a32e",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"api",
-								"v1",
-								"ratings",
-								"662abafa5d91ff0fc4e2a32c",
-								"662abb0d5d91ff0fc4e2a32e"
-							]
-						}
+						"url": "http://localhost:3000/api/v1/ratings/662abafa5d91ff0fc4e2a32c/662abb0d5d91ff0fc4e2a32e"
 					},
 					"response": []
 				},
@@ -487,22 +282,7 @@
 								}
 							}
 						},
-						"url": {
-							"raw": "http://localhost:3000/api/v1/ratings/662abfe3f4e3ff7584830498/662ac00bf4e3ff758483049c/662bb4f15b9ed306cca59416",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"api",
-								"v1",
-								"ratings",
-								"662abfe3f4e3ff7584830498",
-								"662ac00bf4e3ff758483049c",
-								"662bb4f15b9ed306cca59416"
-							]
-						}
+						"url": "http://localhost:3000/api/v1/ratings/662abfe3f4e3ff7584830498/662ac00bf4e3ff758483049c/662bb4f15b9ed306cca59416"
 					},
 					"response": []
 				},
@@ -520,22 +300,7 @@
 								}
 							}
 						},
-						"url": {
-							"raw": "http://localhost:3000/api/v1/ratings/662abfe3f4e3ff7584830498/662ac00bf4e3ff758483049c/662baade343c3677540d97fd",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"api",
-								"v1",
-								"ratings",
-								"662abfe3f4e3ff7584830498",
-								"662ac00bf4e3ff758483049c",
-								"662baade343c3677540d97fd"
-							]
-						}
+						"url": "http://localhost:3000/api/v1/ratings/662abfe3f4e3ff7584830498/662ac00bf4e3ff758483049c/662baade343c3677540d97fd"
 					},
 					"response": []
 				},
@@ -544,19 +309,177 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": {
-							"raw": "http://localhost:3000/api/v1/ratings",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"api",
-								"v1",
-								"ratings"
-							]
+						"url": "http://localhost:3000/api/v1/ratings"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "SignUp",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userName\":\"usr200\",\r\n    \"email\":\"usr200@gmail.com\",\r\n    \"password\":\"abcD123#\",\r\n    \"passwordConfirm\":\"abcD123#\",\r\n    \"profilePhoto\":\"1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/api/v1/users/signup"
+					},
+					"response": []
+				},
+				{
+					"name": "singIn",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"jwt\",pm.response.json.token)"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
 						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userNameOrEmail\":\"usr00\",\r\n    \"password\":\"abcD123##\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/api/v1/users/signin"
+					},
+					"response": []
+				},
+				{
+					"name": "LogOut",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{jwt}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:3000/api/v1/users/logout"
+					},
+					"response": []
+				},
+				{
+					"name": "ChangePassword",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{jwt}}"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"pass\":\"abcD123#\",\r\n    \"newPass\":\"abcD123##\",\r\n    \"newPassConfirm\":\"abcD123##\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/api/v1/users/changepassword"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Admin",
+			"item": [
+				{
+					"name": "Create - User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{jwt}}"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userName\":\"usr00\",\r\n    \"email\":\"usr00@gmail.com\",\r\n    \"role\":\"admin\",\r\n    \"password\":\"abcD123#\",\r\n    \"passwordConfirm\":\"abcD123#\",\r\n    \"profilePhoto\":\"linll\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/api/v1/users"
+					},
+					"response": []
+				},
+				{
+					"name": "Show -All - Users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:3000/api/v1/users"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete - User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{jwt}}"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": "http://localhost:3000/api/v1/users/7"
+					},
+					"response": []
+				},
+				{
+					"name": "show - single - user",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{jwt}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:3000/api/v1/users/662abafa5d91ff0fc4e2a32c"
 					},
 					"response": []
 				}
@@ -589,6 +512,10 @@
 		{
 			"key": "host",
 			"value": "http://localhost:3000"
+		},
+		{
+			"key": "jwt",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2MzEzMjk2NzFiNTZmNGI0MDcyNjcyZSIsImlhdCI6MTcxNDUwMzkzNywiZXhwIjoxNzIyMjc5OTM3fQ.iOU_rDOWzvIgYFr6n-5PF8Ry9oYtidtwy6p58E6SyJA"
 		}
 	]
 }

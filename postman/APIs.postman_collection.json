@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "981804f3-6a82-40d2-8d97-e77b5a1db110",
+		"_postman_id": "e1b2bca5-10f0-4fe8-b4dd-b8637566564b",
 		"name": "APIs",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "32754840"
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "29827163"
 	},
 	"item": [
 		{
@@ -14,13 +14,9 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{jwt}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{jwt}}"
+							}
 						},
 						"method": "POST",
 						"header": [],
@@ -33,19 +29,7 @@
 								}
 							}
 						},
-						"url": {
-							"raw": "http://localhost:3000/api/v1/books",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"api",
-								"v1",
-								"books"
-							]
-						}
+						"url": "http://localhost:3000/api/v1/books"
 					},
 					"response": []
 				},
@@ -54,27 +38,13 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{jwt}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{jwt}}"
+							}
 						},
 						"method": "GET",
 						"header": [],
-						"url": {
-							"raw": "{{host}}/api/v1/books",
-							"host": [
-								"{{host}}"
-							],
-							"path": [
-								"api",
-								"v1",
-								"books"
-							]
-						}
+						"url": "{{host}}/api/v1/books"
 					},
 					"response": []
 				},
@@ -83,9 +53,7 @@
 					"request": {
 						"method": "PATCH",
 						"header": [],
-						"url": {
-							"raw": ""
-						}
+						"url": ""
 					},
 					"response": []
 				},
@@ -94,9 +62,7 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": {
-							"raw": ""
-						}
+						"url": ""
 					},
 					"response": []
 				},
@@ -105,29 +71,13 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{jwt}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{jwt}}"
+							}
 						},
 						"method": "GET",
 						"header": [],
-						"url": {
-							"raw": "{{host}}/api/v1/books/showAllUsers/66317fddc28b3574ec69b50a",
-							"host": [
-								"{{host}}"
-							],
-							"path": [
-								"api",
-								"v1",
-								"books",
-								"showAllUsers",
-								"66317fddc28b3574ec69b50a"
-							]
-						}
+						"url": "{{host}}/api/v1/books/showAllUsers/66317fddc28b3574ec69b50a"
 					},
 					"response": []
 				},
@@ -136,29 +86,13 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{jwt}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{jwt}}"
+							}
 						},
 						"method": "GET",
 						"header": [],
-						"url": {
-							"raw": "{{host}}/api/v1/books/showAllRatings/662abb0d5d91ff0fc4e2a32e",
-							"host": [
-								"{{host}}"
-							],
-							"path": [
-								"api",
-								"v1",
-								"books",
-								"showAllRatings",
-								"662abb0d5d91ff0fc4e2a32e"
-							]
-						}
+						"url": "{{host}}/api/v1/books/showAllRatings/662abb0d5d91ff0fc4e2a32e"
 					},
 					"response": []
 				},
@@ -167,30 +101,13 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{jwt}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{jwt}}"
+							}
 						},
 						"method": "DELETE",
 						"header": [],
-						"url": {
-							"raw": "http://localhost:3000/api/v1/books/4",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"api",
-								"v1",
-								"books",
-								"4"
-							]
-						}
+						"url": "http://localhost:3000/api/v1/books/4"
 					},
 					"response": []
 				},
@@ -199,13 +116,9 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{jwt}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{jwt}}"
+							}
 						},
 						"method": "PATCH",
 						"header": [],
@@ -218,20 +131,7 @@
 								}
 							}
 						},
-						"url": {
-							"raw": "http://localhost:3000/api/v1/books/2",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"api",
-								"v1",
-								"books",
-								"2"
-							]
-						}
+						"url": "http://localhost:3000/api/v1/books/2"
 					},
 					"response": []
 				}
@@ -243,37 +143,36 @@
 				{
 					"name": "Update - User",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{jwt}}"
+							}
+						},
 						"method": "PATCH",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"userName\":\"usr5\",\r\n    \"email\":\"usr5@gmail.com\",\r\n    \"profilePhoto\":\"link5\"\r\n}",
+							"raw": "{\r\n    \"userName\":\"usr201\",\r\n    \"email\":\"usr@gmail.com\",\r\n    \"profilePhoto\":\"link;4\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
 								}
 							}
 						},
-						"url": {
-							"raw": "http://localhost:3000/api/v1/users/662abfebf4e3ff758483049a",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"api",
-								"v1",
-								"users",
-								"662abfebf4e3ff758483049a"
-							]
-						}
+						"url": "http://localhost:3000/api/v1/users/updateProfile"
 					},
 					"response": []
 				},
 				{
 					"name": "Upload - Profile -Photo",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{jwt}}"
+							}
+						},
 						"method": "POST",
 						"header": [],
 						"body": {
@@ -283,28 +182,10 @@
 									"key": "photo",
 									"type": "file",
 									"src": "postman-cloud:///1eec6ac1-5993-4220-8f9b-6ba85b42976f"
-								},
-								{
-									"key": "userId",
-									"value": "662abfebf4e3ff758483049a",
-									"type": "text"
 								}
 							]
 						},
-						"url": {
-							"raw": "http://localhost:3000/api/v1/users/uploadprofilepicture",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"api",
-								"v1",
-								"users",
-								"uploadprofilepicture"
-							]
-						}
+						"url": "http://localhost:3000/api/v1/users/uploadprofilepicture"
 					},
 					"response": []
 				},
@@ -313,31 +194,13 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{jwt}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{jwt}}"
+							}
 						},
 						"method": "GET",
 						"header": [],
-						"url": {
-							"raw": "http://localhost:3000/api/v1/users/addBook/66317fddc28b3574ec69b50a",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"api",
-								"v1",
-								"users",
-								"addBook",
-								"66317fddc28b3574ec69b50a"
-							]
-						}
+						"url": "http://localhost:3000/api/v1/users/addBook/66317fddc28b3574ec69b50a"
 					},
 					"response": []
 				},
@@ -346,31 +209,13 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{jwt}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{jwt}}"
+							}
 						},
 						"method": "DELETE",
 						"header": [],
-						"url": {
-							"raw": "http://localhost:3000/api/v1/users/removeBook/662abb0d5d91ff0fc4e2a32e",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"api",
-								"v1",
-								"users",
-								"removeBook",
-								"662abb0d5d91ff0fc4e2a32e"
-							]
-						}
+						"url": "http://localhost:3000/api/v1/users/removeBook/662abb0d5d91ff0fc4e2a32e"
 					},
 					"response": []
 				},
@@ -379,29 +224,13 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{jwt}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{jwt}}"
+							}
 						},
 						"method": "GET",
 						"header": [],
-						"url": {
-							"raw": "{{host}}/api/v1/users/showAllbooks/6631329671b56f4b4072672e",
-							"host": [
-								"{{host}}"
-							],
-							"path": [
-								"api",
-								"v1",
-								"users",
-								"showAllbooks",
-								"6631329671b56f4b4072672e"
-							]
-						}
+						"url": "{{host}}/api/v1/users/showAllbooks"
 					},
 					"response": []
 				},
@@ -410,29 +239,13 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{jwt}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{jwt}}"
+							}
 						},
 						"method": "GET",
 						"header": [],
-						"url": {
-							"raw": "{{host}}/api/v1/users/showAllRatings/662abafa5d91ff0fc4e2a32c",
-							"host": [
-								"{{host}}"
-							],
-							"path": [
-								"api",
-								"v1",
-								"users",
-								"showAllRatings",
-								"662abafa5d91ff0fc4e2a32c"
-							]
-						}
+						"url": "{{host}}/api/v1/users/showAllRatings"
 					},
 					"response": []
 				}
@@ -444,6 +257,12 @@
 				{
 					"name": "Create - Rating",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{jwt}}"
+							}
+						},
 						"method": "POST",
 						"header": [],
 						"body": {
@@ -455,21 +274,7 @@
 								}
 							}
 						},
-						"url": {
-							"raw": "http://localhost:3000/api/v1/ratings/662abafa5d91ff0fc4e2a32c/662abb0d5d91ff0fc4e2a32e",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"api",
-								"v1",
-								"ratings",
-								"662abafa5d91ff0fc4e2a32c",
-								"662abb0d5d91ff0fc4e2a32e"
-							]
-						}
+						"url": "http://localhost:3000/api/v1/ratings/66317fddc28b3574ec69b50a"
 					},
 					"response": []
 				},
@@ -479,6 +284,12 @@
 						"disableBodyPruning": true
 					},
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{jwt}}"
+							}
+						},
 						"method": "GET",
 						"header": [],
 						"body": {
@@ -490,28 +301,19 @@
 								}
 							}
 						},
-						"url": {
-							"raw": "http://localhost:3000/api/v1/ratings/662abfe3f4e3ff7584830498/662ac00bf4e3ff758483049c/662bb4f15b9ed306cca59416",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"api",
-								"v1",
-								"ratings",
-								"662abfe3f4e3ff7584830498",
-								"662ac00bf4e3ff758483049c",
-								"662bb4f15b9ed306cca59416"
-							]
-						}
+						"url": "http://localhost:3000/api/v1/ratings/66317fddc28b3574ec69b50a/66328f639c30468de81ce008"
 					},
 					"response": []
 				},
 				{
 					"name": "Remove - Rating",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{jwt}}"
+							}
+						},
 						"method": "DELETE",
 						"header": [],
 						"body": {
@@ -523,43 +325,22 @@
 								}
 							}
 						},
-						"url": {
-							"raw": "http://localhost:3000/api/v1/ratings/662abfe3f4e3ff7584830498/662ac00bf4e3ff758483049c/662baade343c3677540d97fd",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"api",
-								"v1",
-								"ratings",
-								"662abfe3f4e3ff7584830498",
-								"662ac00bf4e3ff758483049c",
-								"662baade343c3677540d97fd"
-							]
-						}
+						"url": "http://localhost:3000/api/v1/ratings/662abfe3f4e3ff7584830498/662ac00bf4e3ff758483049c/662baade343c3677540d97fd"
 					},
 					"response": []
 				},
 				{
 					"name": "Show - All - ratings",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{jwt}}"
+							}
+						},
 						"method": "GET",
 						"header": [],
-						"url": {
-							"raw": "http://localhost:3000/api/v1/ratings",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"api",
-								"v1",
-								"ratings"
-							]
-						}
+						"url": "http://localhost:3000/api/v1/ratings"
 					},
 					"response": []
 				}
@@ -582,20 +363,7 @@
 								}
 							}
 						},
-						"url": {
-							"raw": "http://localhost:3000/api/v1/users/signup",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"api",
-								"v1",
-								"users",
-								"signup"
-							]
-						}
+						"url": "http://localhost:3000/api/v1/users/signup"
 					},
 					"response": []
 				},
@@ -628,27 +396,14 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"userNameOrEmail\":\"usr00\",\r\n    \"password\":\"abcD123##\"\r\n}",
+							"raw": "{\r\n    \"userNameOrEmail\":\"usr201\",\r\n    \"password\":\"abcD123##\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
 								}
 							}
 						},
-						"url": {
-							"raw": "http://localhost:3000/api/v1/users/signin",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"api",
-								"v1",
-								"users",
-								"signin"
-							]
-						}
+						"url": "http://localhost:3000/api/v1/users/signin"
 					},
 					"response": []
 				},
@@ -657,30 +412,13 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{jwt}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{jwt}}"
+							}
 						},
 						"method": "GET",
 						"header": [],
-						"url": {
-							"raw": "http://localhost:3000/api/v1/users/logout",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"api",
-								"v1",
-								"users",
-								"logout"
-							]
-						}
+						"url": "http://localhost:3000/api/v1/users/logout"
 					},
 					"response": []
 				},
@@ -689,39 +427,22 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{jwt}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{jwt}}"
+							}
 						},
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"pass\":\"abcD123#\",\r\n    \"newPass\":\"abcD123##\",\r\n    \"newPassConfirm\":\"abcD123##\"\r\n}",
+							"raw": "{\r\n    \"pass\":\"abcD123##\",\r\n    \"newPass\":\"abcD123##\",\r\n    \"newPassConfirm\":\"abcD123##\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
 								}
 							}
 						},
-						"url": {
-							"raw": "http://localhost:3000/api/v1/users/changepassword",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"api",
-								"v1",
-								"users",
-								"changepassword"
-							]
-						}
+						"url": "http://localhost:3000/api/v1/users/changepassword"
 					},
 					"response": []
 				}
@@ -735,13 +456,9 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{jwt}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{jwt}}"
+							}
 						},
 						"method": "POST",
 						"header": [],
@@ -754,40 +471,22 @@
 								}
 							}
 						},
-						"url": {
-							"raw": "http://localhost:3000/api/v1/users",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"api",
-								"v1",
-								"users"
-							]
-						}
+						"url": "http://localhost:3000/api/v1/users"
 					},
 					"response": []
 				},
 				{
 					"name": "Show -All - Users",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{jwt}}"
+							}
+						},
 						"method": "GET",
 						"header": [],
-						"url": {
-							"raw": "http://localhost:3000/api/v1/users",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"api",
-								"v1",
-								"users"
-							]
-						}
+						"url": "http://localhost:3000/api/v1/users"
 					},
 					"response": []
 				},
@@ -796,30 +495,13 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{jwt}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{jwt}}"
+							}
 						},
 						"method": "DELETE",
 						"header": [],
-						"url": {
-							"raw": "http://localhost:3000/api/v1/users/7",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"api",
-								"v1",
-								"users",
-								"7"
-							]
-						}
+						"url": "http://localhost:3000/api/v1/users/7"
 					},
 					"response": []
 				},
@@ -828,30 +510,13 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{jwt}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{jwt}}"
+							}
 						},
 						"method": "GET",
 						"header": [],
-						"url": {
-							"raw": "http://localhost:3000/api/v1/users/662abafa5d91ff0fc4e2a32c",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"api",
-								"v1",
-								"users",
-								"662abafa5d91ff0fc4e2a32c"
-							]
-						}
+						"url": "http://localhost:3000/api/v1/users/6631329671b56f4b4072672e"
 					},
 					"response": []
 				}
@@ -887,7 +552,7 @@
 		},
 		{
 			"key": "jwt",
-			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2MzEzMjk2NzFiNTZmNGI0MDcyNjcyZSIsImlhdCI6MTcxNDU2ODk5NSwiZXhwIjoxNzIyMzQ0OTk1fQ.KCujyE4ZwrP8LpIuEvwpHdCCziLjZUwBgvsBvROz6WQ"
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2MzEzMjk2NzFiNTZmNGI0MDcyNjcyZSIsImlhdCI6MTcxNDU4OTk2MSwiZXhwIjoxNzIyMzY1OTYxfQ.vBlaWprneg295fF1l8V3CcZMXn36GoVui7gJXuk7eoQ"
 		}
 	]
 }

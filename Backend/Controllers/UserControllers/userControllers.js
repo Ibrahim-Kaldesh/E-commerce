@@ -119,8 +119,7 @@ export const removeBook = cathcAsync(async (req, res, next) => {
 });
 
 export const showAllBooksOfSingleUser = cathcAsync(async (req, res, next) => {
-
-  const user = await userModel.findById(req.params.userId).populate("books")
+  const user = await userModel.findById(req.user._id).populate("books");
 
   if (!user) return next(new AppError("user not found !!", 404));
 
@@ -132,7 +131,7 @@ export const showAllBooksOfSingleUser = cathcAsync(async (req, res, next) => {
 });
 
 export const showAllRatingsOfSingleUser = cathcAsync(async (req, res, next) => {
-  const user = await userModel.findById(req.params.userId).populate("ratings");
+  const user = await userModel.findById(req.user._id).populate("ratings");
 
   if (!user) return next(new AppError("user not found !!", 404));
 
@@ -175,11 +174,8 @@ export const resizeImage = cathcAsync(async function (req, res, next) {
 
 // Controllers for any user
 export const updateUserPhoto = cathcAsync(async function (req, res, next) {
-  let user = await userModel.findById(req.body.userId);
-  if (!user) return next(new AppError("User not found !!", 404));
-
-  user = await userModel.findByIdAndUpdate(
-    req.body.userId,
+  const user = await userModel.findByIdAndUpdate(
+    req.body._id,
     { profilePhoto: req.filename },
     { new: true, runValidators: true }
   );

@@ -48,8 +48,8 @@ userRouter
 userRouter.get("/addBook/:bookId", addBook);
 userRouter.delete("/removeBook/:bookId", removeBook);
 
-userRouter.get("/showAllbooks/:userId", showAllBooksOfSingleUser);
-userRouter.get("/showAllRatings/:userId", showAllRatingsOfSingleUser);
+userRouter.get("/showAllbooks", showAllBooksOfSingleUser);
+userRouter.get("/showAllRatings", showAllRatingsOfSingleUser);
 
 userRouter.post(
   "/uploadprofilepicture",

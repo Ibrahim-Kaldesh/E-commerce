@@ -28,11 +28,10 @@ export const showAllBooks = cathcAsync(async (req, res, next) => {
 });
 
 export const deleteBook = cathcAsync(async function (req, res, next) {
-  const book = await bookModel.findById(req.params.bookId)
-  if(book){
-    await bookModel.findByIdAndDelete(req.params.bookId)
-  }
-  else{
+  const book = await bookModel.findById(req.params.bookId);
+  if (book) {
+    await bookModel.findByIdAndDelete(req.params.bookId);
+  } else {
     return next(new AppError("Book doesn't exist !!", 404));
   }
   res.status(200).json({
@@ -44,20 +43,24 @@ export const deleteBook = cathcAsync(async function (req, res, next) {
 export const updateBookById = cathcAsync(async function (req, res, next) {
   if (!Object.entries(req.body).length)
     return next(new AppError("No Data", 400));
-  const newBook = await bookModel.findByIdAndUpdate(req.params.bookId, req.body, {
-    new: true,
-    runValidators: true,
-  })
+  const newBook = await bookModel.findByIdAndUpdate(
+    req.params.bookId,
+    req.body,
+    {
+      new: true,
+      runValidators: true,
+    }
+  );
 
   res.status(200).json({
     status: "Success !!",
     message: "book updated successfully",
-    newBook
+    newBook,
   });
 });
 
 export const showBookById = cathcAsync(async function (req, res, next) {
-  const bookToShow = await bookModel.findById(req.params.bookId)
+  const bookToShow = await bookModel.findById(req.params.bookId);
 
   if (!bookToShow) return next(new AppError("Book not found !!", 404));
 
@@ -76,8 +79,8 @@ export const showAllUsersOfSingleBook = cathcAsync(async function (
   const book = await bookModel.findById(bookId);
   if (!book) return next(new AppError("Book not found !!", 404));
 
-   // Populate the 'users' field to get the associated users
-   await book.populate("users").execPopulate();
+  // Populate the 'users' field to get the associated users
+  await book.populate("users").execPopulate();
 
   res.status(200).json({
     status: "Success !!",
@@ -99,5 +102,5 @@ export const showAllRatingsOfSingleBook = cathcAsync(async function (
   res.status(200).json({
     status: "Success !!",
     data: bookToShow,
-  });
+  });
 });

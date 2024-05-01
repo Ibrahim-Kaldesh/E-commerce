@@ -69,8 +69,9 @@ export const updateBookById = cathcAsync(async function (req, res, next) {
   });
 });
 
-export const showBookById = cathcAsync(function (req, res, next) {
-  const bookToShow = findBookById(books, req);
+export const showBookById = cathcAsync(async function (req, res, next) {
+  const bookToShow = await bookModel.findById(req.params.bookId)
+
   if (!bookToShow) return next(new AppError("Book not found !!", 404));
 
   res.status(200).json({

@@ -28,16 +28,13 @@ export const showAllBooks = cathcAsync(async (req, res, next) => {
 });
 
 export const deleteBook = cathcAsync(async function (req, res, next) {
-  const bookToDelete = findBookById(books, req);
-
-  if (!bookToDelete) return next(new AppError("Book not found !!", 404));
-
-  const newBooks = books.filter((book) => {
-    return book != bookToDelete;
-  });
-
-  await writeToJson("./data/books.json", newBooks);
-
+  const book = await bookModel.findById(req.params.bookId)
+  if(book){
+    await bookModel.findByIdAndDelete(req.params.bookId)
+  }
+  else{
+    return next(new AppError("Book doesn't exist !!", 404));
+  }
   res.status(200).json({
     status: "Success !!",
     message: "Book deleted successfully",
@@ -51,7 +48,7 @@ export const updateBookById = cathcAsync(async function (req, res, next) {
     new: true,
     runValidators: true,
   })
-  
+
   res.status(200).json({
     status: "Success !!",
     message: "book updated successfully",

@@ -38,13 +38,7 @@ userRouter.use(userAuth);
 userRouter.post("/changepassword", changePassword);
 userRouter.get("/logout", logOut);
 
-userRouter.route("/").get(showAllUsers).post(createUser);
-userRouter
-  .route("/:userId")
-  .get(showUserById)
-  .delete(removeUser)
-  .patch(updateUserProfile);
-
+userRouter.patch("/updateProfile", updateUserProfile);
 userRouter.get("/addBook/:bookId", addBook);
 userRouter.delete("/removeBook/:bookId", removeBook);
 
@@ -63,7 +57,7 @@ userRouter.post(
 // Authorization Middleware -> but we use authentication middleware above ...
 userRouter.use(admiAuth("admin"));
 
-userRouter.route("/").get(showAllUsers).post(createUser).delete(removeUser);
-userRouter.get("/:id", showUserById);
+userRouter.route("/").get(showAllUsers).post(createUser);
+userRouter.route("/:userId").get(showUserById).delete(removeUser);
 
 export default userRouter;

@@ -103,7 +103,6 @@ export const userAuth = cathcAsync(async function (req, res, next) {
   next();
 });
 
-
 export const changePassword = cathcAsync(async function (req, res, next) {
   const { pass, newPass, newPassConfirm } = req.body;
 
@@ -134,7 +133,6 @@ export const changePassword = cathcAsync(async function (req, res, next) {
     message: "Password changed successfully",
   });
 });
-
 
 export const logOut = cathcAsync(async function (req, res, next) {
   const tokens = req.user.tokens.filter((el) => el !== req.token);

@@ -54,10 +54,12 @@ export const removeUser = cathcAsync(async (req, res, next) => {
 });
 
 export const updateUserProfile = cathcAsync(async function (req, res, next) {
-  user = await userModel.findByIdAndUpdate(req.user._id, req.body, {
+  const user = await userModel.findByIdAndUpdate(req.user._id, req.body, {
     new: true,
     runValidators: true,
   });
+
+  user.tokens = undefined;
 
   res.status(200).json({
     status: "Success !!",
@@ -119,8 +121,7 @@ export const removeBook = cathcAsync(async (req, res, next) => {
 });
 
 export const showAllBooksOfSingleUser = cathcAsync(async (req, res, next) => {
-
-  const user = await userModel.findById(req.params.userId).populate("books")
+  const user = await userModel.findById(req.user._id).populate("books");
 
   if (!user) return next(new AppError("user not found !!", 404));
 
@@ -132,9 +133,11 @@ export const showAllBooksOfSingleUser = cathcAsync(async (req, res, next) => {
 });
 
 export const showAllRatingsOfSingleUser = cathcAsync(async (req, res, next) => {
-  const user = await userModel.findById(req.params.userId).populate("ratings");
+  const user = await userModel.findById(req.user._id).populate("ratings");
 
   if (!user) return next(new AppError("user not found !!", 404));
+
+  user.tokens = undefined;
 
   res.status(200).json({
     status: "Success",
@@ -162,7 +165,7 @@ const upload = multer({
 export const uploadPicture = upload.single("photo");
 
 export const resizeImage = cathcAsync(async function (req, res, next) {
-  req.filename = `user-${req.body.userId}-${Date.now()}.jpeg`;
+  req.filename = `user-${req.user._id}-${Date.now()}.jpeg`;
 
   await sharp(req.file.buffer)
     .resize(500, 500)
@@ -175,14 +178,13 @@ export const resizeImage = cathcAsync(async function (req, res, next) {
 
 // Controllers for any user
 export const updateUserPhoto = cathcAsync(async function (req, res, next) {
-  let user = await userModel.findById(req.body.userId);
-  if (!user) return next(new AppError("User not found !!", 404));
-
-  user = await userModel.findByIdAndUpdate(
-    req.body.userId,
+  const user = await userModel.findByIdAndUpdate(
+    req.user._id,
     { profilePhoto: req.filename },
     { new: true, runValidators: true }
   );
+
+  user.tokens = undefined;
 
   res.status(200).json({
     user,

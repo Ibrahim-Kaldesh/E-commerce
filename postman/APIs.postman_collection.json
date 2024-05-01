@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "404cecff-adab-4953-a6b4-16a106986508",
+		"_postman_id": "981804f3-6a82-40d2-8d97-e77b5a1db110",
 		"name": "APIs",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "30201384"
+		"_exporter_id": "32754840"
 	},
 	"item": [
 		{
@@ -116,7 +116,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{host}}/api/v1/books/showAllUsers/1",
+							"raw": "{{host}}/api/v1/books/showAllUsers/66317fddc28b3574ec69b50a",
 							"host": [
 								"{{host}}"
 							],
@@ -125,7 +125,7 @@
 								"v1",
 								"books",
 								"showAllUsers",
-								"1"
+								"66317fddc28b3574ec69b50a"
 							]
 						}
 					},
@@ -324,7 +324,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/api/v1/users/addBook/662abb0d5d91ff0fc4e2a32e",
+							"raw": "http://localhost:3000/api/v1/users/addBook/66317fddc28b3574ec69b50a",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -335,7 +335,7 @@
 								"v1",
 								"users",
 								"addBook",
-								"662abb0d5d91ff0fc4e2a32e"
+								"66317fddc28b3574ec69b50a"
 							]
 						}
 					},
@@ -390,7 +390,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{host}}/api/v1/users/showAllbooks/1",
+							"raw": "{{host}}/api/v1/users/showAllbooks/6631329671b56f4b4072672e",
 							"host": [
 								"{{host}}"
 							],
@@ -399,7 +399,7 @@
 								"v1",
 								"users",
 								"showAllbooks",
-								"1"
+								"6631329671b56f4b4072672e"
 							]
 						}
 					},
@@ -887,7 +887,7 @@
 		},
 		{
 			"key": "jwt",
-			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2MzEzMjk2NzFiNTZmNGI0MDcyNjcyZSIsImlhdCI6MTcxNDUwMzkzNywiZXhwIjoxNzIyMjc5OTM3fQ.iOU_rDOWzvIgYFr6n-5PF8Ry9oYtidtwy6p58E6SyJA"
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2MzEzMjk2NzFiNTZmNGI0MDcyNjcyZSIsImlhdCI6MTcxNDU2ODk5NSwiZXhwIjoxNzIyMzQ0OTk1fQ.KCujyE4ZwrP8LpIuEvwpHdCCziLjZUwBgvsBvROz6WQ"
 		}
 	]
 }

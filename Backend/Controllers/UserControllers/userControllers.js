@@ -119,16 +119,15 @@ export const removeBook = cathcAsync(async (req, res, next) => {
 });
 
 export const showAllBooksOfSingleUser = cathcAsync(async (req, res, next) => {
-  const user = finduserById(users, req);
-  if (!user) return next(new AppError("user not found !!", 404));
 
-  // return the books only included in the user books
-  const userBooks = books.filter((book) => user.books.includes(book.id));
+  const user = await userModel.findById(req.params.userId).populate("books")
+
+  if (!user) return next(new AppError("user not found !!", 404));
 
   return res.status(200).json({
     status: "Success !!",
     message: "Books of the user retrieved successfully",
-    data: userBooks,
+    data: user.books,
   });
 });
 

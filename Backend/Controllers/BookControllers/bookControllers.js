@@ -47,30 +47,21 @@ export const deleteBook = cathcAsync(async function (req, res, next) {
 export const updateBookById = cathcAsync(async function (req, res, next) {
   if (!Object.entries(req.body).length)
     return next(new AppError("No Data", 400));
-
-  const bookToUpdate = findBookById(books, req);
-  let flag = 0;
-  let newBooks = books;
-  const updatedBook = req.body;
-  newBooks = newBooks.map((book) => {
-    if (book == bookToUpdate) {
-      flag = 1;
-      return updatedBook;
-    } else return book;
-  });
-  if (!flag) {
-    return next(new AppError("Book not found !!", 404));
-  }
-  await writeToJson("./data/books.json", newBooks);
-
-  res.status(201).json({
+  const newBook = await bookModel.findByIdAndUpdate(req.params.bookId, req.body, {
+    new: true,
+    runValidators: true,
+  })
+  
+  res.status(200).json({
     status: "Success !!",
     message: "book updated successfully",
+    newBook
   });
 });
 
-export const showBookById = cathcAsync(function (req, res, next) {
-  const bookToShow = findBookById(books, req);
+export const showBookById = cathcAsync(async function (req, res, next) {
+  const bookToShow = await bookModel.findById(req.params.bookId)
+
   if (!bookToShow) return next(new AppError("Book not found !!", 404));
 
   res.status(200).json({

@@ -128,3 +128,12 @@ library-management-system/<br>
 - **rate**: Number (required) - The rating value (1-5).
 - **user**: ObjectId (required) - The user who rated the book.
 - **book**: ObjectId (required) - The book being rated.
+
+
+### User
+
+- **userName**: String (required, unique) - The username of the user.
+- **email**: String (required, unique) - The email of the user.
+- **password**: String (required) - The hashed password of the user.
+- **role**: String - Role of the user (user/admin).
+- **tokens**: Array of Strings - Authentication

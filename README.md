@@ -1,3 +1,6 @@
+# Library Management System
+
+The Library Management System is a Node.js application designed to manage books, users, and ratings in a library setting. This system provides functionality for both users and administrators to interact with the library resources.
 library-management-system/<br>
 │
 ├── app/<br>

@@ -245,7 +245,7 @@
 						},
 						"method": "POST",
 						"header": [],
-						"url": "http://localhost:3000/api/v1/users/addBook/66317fddc28b3574ec69b50a"
+						"url": "http://localhost:3000/api/v1/users/addBook/6633b485d302975be077d228"
 					},
 					"response": []
 				},
@@ -401,7 +401,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"userName\":\"admin\",\r\n    \"email\":\"admin@gmail.com\",\r\n    \"password\":\"abcD123#\",\r\n    \"passwordConfirm\":\"abcD123#\"\r\n}",
+							"raw": "{\r\n    \"userName\":\"admin1\",\r\n    \"email\":\"admin1@gmail.com\",\r\n    \"password\":\"abcD123#\",\r\n    \"passwordConfirm\":\"abcD123#\",\r\n    \"profilePhoto\":\"123\",\r\n    \"role\": \"admin\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -441,7 +441,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"userNameOrEmail\":\"Ahmad1234\",\r\n    \"password\":\"P@ssw0rd123\"\r\n}",
+							"raw": "{\r\n    \"userNameOrEmail\":\"admin1\",\r\n    \"password\":\"abcD123#\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -561,7 +561,7 @@
 						},
 						"method": "GET",
 						"header": [],
-						"url": "http://localhost:3000/api/v1/users/6633b28b9a37043144d3f7c1"
+						"url": "http://localhost:3000/api/v1/users/6633c116e92c0a8da4ef1866"
 					},
 					"response": []
 				}

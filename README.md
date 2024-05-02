@@ -7,26 +7,26 @@ library-management-system/
 - │   │   ├── usersController.js
 - │   │   └── ratingsController.js
 - │   │
-│   ├── models/
-│   │   ├── book.js
-│   │   ├── user.js
-│   │   └── rating.js
-│   │
-│   ├── routes/
-│   │   ├── booksRoutes.js
-│   │   ├── usersRoutes.js
-│   │   └── ratingsRoutes.js
-│   │
-│   ├── utils/
-│   │   └── auth.js
-│   │
-│   ├── server.js
-│   └── config.js
-│
-├── Dockerfile
-├── package.json
-├── package-lock.json
-├── .env
-├── .gitignore
-└── README.md
+- │   ├── models/
+- │   │   ├── book.js
+- │   │   ├── user.js
+- │   │   └── rating.js
+- │   │
+- │   ├── routes/
+- │   │   ├── booksRoutes.js
+- │   │   ├── usersRoutes.js
+- │   │   └── ratingsRoutes.js
+- │   │
+- │   ├── utils/
+- │   │   └── auth.js
+- │   │
+- │   ├── server.js
+- │   └── config.js
+- │
+- ├── Dockerfile
+- ├── package.json
+- ├── package-lock.json
+- ├── .env
+- ├── .gitignore
+- └── README.md
 `

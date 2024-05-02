@@ -1,5 +1,3 @@
-import { writeToJson } from "../../helpers/readAndWrite.js";
-import { finduserById } from "../../helpers/searchById.js";
 import AppError from "../../util/appError.js";
 import { cathcAsync } from "../errorControllers/errorContollers.js";
 import userModel from "../../DB/Models/userModel/userModel.js";
@@ -31,21 +29,7 @@ export const showAllUsers = cathcAsync(async (req, res, next) => {
 });
 
 export const removeUser = cathcAsync(async (req, res, next) => {
-  const userId = +req.params.userId;
-
-  const idx = users.findIndex((u) => u.id === userId);
-  users.splice(idx, 1);
-
-  const newBooks = books.map((b) => {
-    if (b.users.includes(userId)) {
-      b.users = b.users.filter((id) => id !== userId);
-    }
-    return b;
-  });
-
-  // update json file with new data
-  await writeToJson("./data/users.json", users);
-  await writeToJson("./data/books.json", newBooks);
+  await userModel.findByIdAndDelete(req.user._id);
 
   res.status(203).json({
     status: "Success",
@@ -77,6 +61,40 @@ export const showUserById = cathcAsync(async (req, res, next) => {
     status: "Success",
     message: "User showed successfully",
     user,
+  });
+});
+
+export const searchBookRes = cathcAsync(async function (req, res, next) {
+  if (req.results.length) {
+    return res.status(200).json({
+      results: req.results.length,
+      status: "success",
+      message: "Results showed successfully",
+      search: req.search,
+      books: req.results,
+    });
+  }
+  res.status(200).json({
+    status: "success",
+    message: "No results found !!",
+    search: req.search,
+  });
+});
+
+export const searchUserRes = cathcAsync(async function (req, res, next) {
+  if (req.results.length) {
+    return res.status(200).json({
+      results: req.results.length,
+      status: "success",
+      message: "Results showed successfully",
+      search: req.search,
+      books: req.results,
+    });
+  }
+  res.status(200).json({
+    status: "success",
+    message: "No results found !!",
+    search: req.search,
   });
 });
 

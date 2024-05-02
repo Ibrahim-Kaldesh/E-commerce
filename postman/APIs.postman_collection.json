@@ -245,7 +245,7 @@
 						},
 						"method": "POST",
 						"header": [],
-						"url": "http://localhost:3000/api/v1/users/addBook/66317fddc28b3574ec69b50a"
+						"url": "http://localhost:3000/api/v1/users/addBook/6633b485d302975be077d228"
 					},
 					"response": []
 				},
@@ -291,39 +291,6 @@
 						"method": "GET",
 						"header": [],
 						"url": "{{host}}/api/v1/users/showAllRatings"
-					},
-					"response": []
-				},
-				{
-					"name": "Search-by-userName",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": {
-								"token": "{{jwt}}"
-							}
-						},
-						"method": "POST",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:3000/api/v1/users?search=admin",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"api",
-								"v1",
-								"users"
-							],
-							"query": [
-								{
-									"key": "search",
-									"value": "admin"
-								}
-							]
-						}
 					},
 					"response": []
 				}
@@ -434,7 +401,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"userName\":\"admin\",\r\n    \"email\":\"admin@gmail.com\",\r\n    \"password\":\"abcD123#\",\r\n    \"passwordConfirm\":\"abcD123#\"\r\n}",
+							"raw": "{\r\n    \"userName\":\"admin1\",\r\n    \"email\":\"admin1@gmail.com\",\r\n    \"password\":\"abcD123#\",\r\n    \"passwordConfirm\":\"abcD123#\",\r\n    \"profilePhoto\":\"123\",\r\n    \"role\": \"admin\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -474,7 +441,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"userNameOrEmail\":\"admin\",\r\n    \"password\":\"abcD123#\"\r\n}",
+							"raw": "{\r\n    \"userNameOrEmail\":\"admin1\",\r\n    \"password\":\"abcD123#\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -579,7 +546,7 @@
 						},
 						"method": "DELETE",
 						"header": [],
-						"url": "http://localhost:3000/api/v1/users/662abfe3f4e3ff7584830498"
+						"url": "http://localhost:3000/api/v1/users/6633b1c6d6aca72f08548efc"
 					},
 					"response": []
 				},
@@ -594,7 +561,7 @@
 						},
 						"method": "GET",
 						"header": [],
-						"url": "http://localhost:3000/api/v1/users/6633aa726ecb883204a124d9"
+						"url": "http://localhost:3000/api/v1/users/6633c116e92c0a8da4ef1866"
 					},
 					"response": []
 				}
@@ -630,7 +597,7 @@
 		},
 		{
 			"key": "jwt",
-			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2MzNhYTcyNmVjYjg4MzIwNGExMjRkOSIsImlhdCI6MTcxNDY2MjQ2MSwiZXhwIjoxNzIyNDM4NDYxfQ.bSiMfzIno18xHf1yeH-El3762jukFnmO959G8e0V7_A"
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2MzNjMTE2ZTkyYzBhOGRhNGVmMTg2NiIsImlhdCI6MTcxNDY2Nzg0MiwiZXhwIjoxNzIyNDQzODQyfQ.TjEzLWvxHmJl-Mfem-IMCFJdJTQYWGJovgQcnJba5I0"
 		}
 	]
 }

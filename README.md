@@ -122,4 +122,9 @@ library-management-system/<br>
 - **category**: String - Category of the book.
 - **publishedDate**: Date (required) - The published date of the book.
 - **users**: Array of ObjectIds - Users who have the book.
-  
+
+### Rating
+
+- **rate**: Number (required) - The rating value (1-5).
+- **user**: ObjectId (required) - The user who rated the book.
+- **book**: ObjectId (required) - The book being rated.

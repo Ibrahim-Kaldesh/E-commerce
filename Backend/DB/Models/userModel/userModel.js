@@ -119,7 +119,7 @@ userSchema.methods.passwordChangedAfter = function (jwtTimeStamp) {
     );
     return jwtTimeStamp < changedPasswordTime;
   }
-  return false;
+  return false;
 };
 
 userSchema.pre("save", async function (next) {

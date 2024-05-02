@@ -10,6 +10,8 @@ import {
   showAllRatingsOfSingleBook,
 } from "../../Controllers/BookControllers/bookControllers.js";
 import { userAuth } from "../../MiddleWare/Authentication/userAuthentication.js";
+import { searchBook } from "../../MiddleWare/helpers/search.js";
+import { searchBookRes } from "../../Controllers/UserControllers/userControllers.js";
 
 const bookRouter = express.Router();
 
@@ -19,6 +21,7 @@ bookRouter.get("/showAllUsers/:bookId", showAllUsersOfSingleBook);
 bookRouter.get("/showAllRatings/:bookId", showAllRatingsOfSingleBook);
 bookRouter.get("/:bookId", showBookById);
 bookRouter.get("/", showAllBooks);
+bookRouter.route("/").get(searchBook, searchBookRes);
 
 bookRouter.use(admiAuth("admin"));
 bookRouter.post("/", createBook);

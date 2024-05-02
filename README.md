@@ -10,6 +10,75 @@ The Library Management System is a Node.js application designed to manage books,
 - User management for administrators
 - Docker support for containerization
 
+# Library Management System
+
+## Introduction
+
+The Library Management System is a Node.js application designed to manage books, users, and ratings in a library setting. This system provides functionality for both users and administrators to interact with the library resources.
+
+## Features
+
+- User authentication and authorization
+- CRUD operations for books
+- Book searching and reservation
+- User management for administrators
+- Docker support for containerization
+
+## Installation
+
+To get started with the Library Management System, follow these steps:
+
+1. **Clone this repository.**
+    ```bash
+    git clone <repository_url>
+    ```
+
+2. **Navigate to the project directory.**
+    ```bash
+    cd library-management-system
+    ```
+
+3. **Install dependencies using npm install.**
+    ```bash
+    npm install
+    ```
+
+4. **Create a .env file based on the provided .env.example file and configure the necessary environment variables.**
+    ```bash
+    cp .env.example .env
+    ```
+
+    Make sure to set the appropriate values for your environment.
+
+## Usage
+
+To run the Library Management System locally, you can use either npm or Docker.
+
+### Using npm
+
+1. **Start the server.**
+    ```bash
+    npm start
+    ```
+
+2. **Access the application.**
+    Open your web browser and go to http://localhost:3000.
+
+### Using Docker
+
+1. **Build the Docker image.**
+    ```bash
+    docker build -t library-management-system .
+    ```
+
+2. **Run the Docker container.**
+    ```bash
+    docker run -d -p 3000:3000 library-management-system
+    ```
+
+3. **Access the application.**
+    Open your web browser and go to http://localhost:3000.
+
 library-management-system/<br>
 │
 ├── app/<br>

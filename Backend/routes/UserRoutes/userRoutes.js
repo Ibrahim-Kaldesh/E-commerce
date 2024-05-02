@@ -39,7 +39,7 @@ userRouter.post("/changepassword", changePassword);
 userRouter.get("/logout", logOut);
 
 userRouter.patch("/updateProfile", updateUserProfile);
-userRouter.get("/addBook/:bookId", addBook);
+userRouter.post("/addBook/:bookId", addBook);
 userRouter.delete("/removeBook/:bookId", removeBook);
 
 userRouter.get("/showAllbooks", showAllBooksOfSingleUser);

@@ -1,5 +1,16 @@
 # Library Management System
 
+## Table of Contents
+
+- [Introduction](#introduction)
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Technologies Used](#technologies-used)
+- [Directory Structure](#directory-structure)
+
+##Introduction
+
 The Library Management System is a Node.js application designed to manage books, users, and ratings in a library setting. This system provides functionality for both users and administrators to interact with the library resources.
 
 ## Features
@@ -65,15 +76,7 @@ To run the Library Management System locally, you can use either npm or Docker.
 3. **Access the application.**
     Open your web browser and go to http://localhost:3000.
 
-## Technologies Used
-
-The Library Management System is built using the following technologies:
-
-- Node.js
-- Express.js
-- MongoDB
-- Docker
-
+## Directory Structure
 library-management-system/<br>
 │
 ├── app/<br>

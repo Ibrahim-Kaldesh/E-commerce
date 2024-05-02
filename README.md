@@ -8,6 +8,7 @@
 - [Usage](#usage)
 - [Technologies Used](#technologies-used)
 - [Directory Structure](#directory-structure)
+- [Database Models](#database-models)
 
 ## Introduction
 
@@ -110,3 +111,15 @@ library-management-system/<br>
 ├── .gitignore<br>
 └── README.md<br>
 
+## Database Models
+
+### Book
+
+- **title**: String (required) - The title of the book.
+- **description**: String - Description of the book.
+- **isAvailable**: Boolean - Indicates whether the book is available or not.
+- **author**: String (required) - The author of the book.
+- **category**: String - Category of the book.
+- **publishedDate**: Date (required) - The published date of the book.
+- **users**: Array of ObjectIds - Users who have the book.
+  

@@ -39,7 +39,7 @@ userRouter.use(userAuth);
 
 userRouter.post("/changepassword", changePassword);
 userRouter.get("/logout", logOut);
-userRouter.post("/", searchUser, searchUserRes);
+// userRouter.post("/", searchUser, searchUserRes);
 
 userRouter.patch("/updateProfile", updateUserProfile);
 userRouter.post("/addBook/:bookId", addBook);
@@ -57,10 +57,10 @@ userRouter.post(
 
 // Routes allowed only for admins
 
-// Authorization Middleware -> but we use authentication middleware above ...
-userRouter.use(admiAuth("admin"));
+// // Authorization Middleware -> but we use authentication middleware above ...
+// userRouter.use(admiAuth("admin"));
 
-userRouter.route("/").get(showAllUsers);
+userRouter.route("/").get(showAllUsers).post(createUser);
 userRouter.route("/:userId").get(showUserById).delete(removeUser);
 
 export default userRouter;

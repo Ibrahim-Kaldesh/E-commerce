@@ -40,15 +40,6 @@ export const globalErrorrHandling = function (err, req, res, next) {
     return sendResponse(res, error);
   }
 
-  // HANDLE CAST ERROR
-  if (err.name === "Error") {
-    res.status(404).json({
-      status: err.status,
-      message: "Unauthorized user !!",
-      stack: err.stack,
-    });
-  }
-
   // HANDLE DUPLICATE KEYS ERRORS
   if (err.code === 11000) {
     error = handleDuplicateKeyError(err);

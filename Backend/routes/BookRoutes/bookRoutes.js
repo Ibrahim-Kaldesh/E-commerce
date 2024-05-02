@@ -20,8 +20,7 @@ bookRouter.use(userAuth);
 bookRouter.get("/showAllUsers/:bookId", showAllUsersOfSingleBook);
 bookRouter.get("/showAllRatings/:bookId", showAllRatingsOfSingleBook);
 bookRouter.get("/:bookId", showBookById);
-bookRouter.get("/", showAllBooks);
-bookRouter.route("/").get(searchBook, searchBookRes);
+bookRouter.route("/").get(showAllBooks).post(searchBook, searchBookRes);
 
 bookRouter.use(admiAuth("admin"));
 bookRouter.post("/", createBook);

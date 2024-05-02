@@ -21,10 +21,4 @@ app.all("*", (req, res, next) => {
 // Global Error Handling response
 app.use(globalErrorrHandling);
 
-const port = 3000;
-
-app.listen(port, () => {
-  console.log(`Server is listening on port ${port}`);
-});
-
 export default app;

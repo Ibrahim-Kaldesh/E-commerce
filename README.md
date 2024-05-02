@@ -10,20 +10,6 @@ The Library Management System is a Node.js application designed to manage books,
 - User management for administrators
 - Docker support for containerization
 
-# Library Management System
-
-## Introduction
-
-The Library Management System is a Node.js application designed to manage books, users, and ratings in a library setting. This system provides functionality for both users and administrators to interact with the library resources.
-
-## Features
-
-- User authentication and authorization
-- CRUD operations for books
-- Book searching and reservation
-- User management for administrators
-- Docker support for containerization
-
 ## Installation
 
 To get started with the Library Management System, follow these steps:

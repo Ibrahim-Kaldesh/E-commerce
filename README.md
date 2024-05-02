@@ -5,6 +5,7 @@ library-management-system/<br>
 │   │   ├── booksController.js<br>
 │   │   ├── usersController.js<br>
 │   │   └── ratingsController.js<br>
+│   │   └── errorController.js<br>
 │   │<br>
 │   ├── models/<br>
 │   │   ├── book.js<br>
@@ -18,9 +19,10 @@ library-management-system/<br>
 │   │<br>
 │   ├── utils/<br>
 │   │   └── auth.js<br>
+│   │   └── AppError<br>
 │   │<br>
+│   ├── app.js<br>
 │   ├── server.js<br>
-│   └── config.js<br>
 │<br>
 ├── Dockerfile<br>
 ├── package.json<br>

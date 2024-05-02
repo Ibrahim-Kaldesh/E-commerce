@@ -6,6 +6,7 @@ import sharp from "sharp";
 import bookModel from "../../DB/Models/bookModel/bookModel.js";
 
 export const createUser = cathcAsync(async (req, res, next) => {
+  console.log(1);
   if (!Object.entries(req.body).length)
     return next(new AppError("No Data", 400));
 

@@ -9,6 +9,7 @@ import {
   removeUser,
   showAllRatingsOfSingleUser,
   updateUserProfile,
+  searchUserRes,
 } from "../../Controllers/UserControllers/userControllers.js";
 import {
   uploadPicture,
@@ -25,6 +26,7 @@ import {
 
 import { userAuth } from "../../MiddleWare/Authentication/userAuthentication.js";
 import { admiAuth } from "../../MiddleWare/Authentication/adminAuthentication.js";
+import { searchUser } from "../../MiddleWare/helpers/search.js";
 
 const userRouter = express.Router();
 
@@ -37,6 +39,7 @@ userRouter.use(userAuth);
 
 userRouter.post("/changepassword", changePassword);
 userRouter.get("/logout", logOut);
+userRouter.post("/", searchUser, searchUserRes);
 
 userRouter.patch("/updateProfile", updateUserProfile);
 userRouter.post("/addBook/:bookId", addBook);
@@ -57,7 +60,7 @@ userRouter.post(
 // Authorization Middleware -> but we use authentication middleware above ...
 userRouter.use(admiAuth("admin"));
 
-userRouter.route("/").get(showAllUsers).post(createUser);
+userRouter.route("/").get(showAllUsers);
 userRouter.route("/:userId").get(showUserById).delete(removeUser);
 
 export default userRouter;

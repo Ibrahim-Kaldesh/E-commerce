@@ -1,32 +1,31 @@
-`
-library-management-system/
+library-management-system/<br>
 │
-- ├── app/
-- │   ├── controllers/
-- │   │   ├── booksController.js
-- │   │   ├── usersController.js
-- │   │   └── ratingsController.js
-- │   │
-- │   ├── models/
-- │   │   ├── book.js
-- │   │   ├── user.js
-- │   │   └── rating.js
-- │   │
-- │   ├── routes/
-- │   │   ├── booksRoutes.js
-- │   │   ├── usersRoutes.js
-- │   │   └── ratingsRoutes.js
-- │   │
-- │   ├── utils/
-- │   │   └── auth.js
-- │   │
-- │   ├── server.js
-- │   └── config.js
-- │
-- ├── Dockerfile
-- ├── package.json
-- ├── package-lock.json
-- ├── .env
-- ├── .gitignore
-- └── README.md
-`
+├── app/<br>
+│   ├── controllers/<br>
+│   │   ├── booksController.js<br>
+│   │   ├── usersController.js<br>
+│   │   └── ratingsController.js<br>
+│   │<br>
+│   ├── models/<br>
+│   │   ├── book.js<br>
+│   │   ├── user.js<br>
+│   │   └── rating.js<br>
+│   │<br>
+│   ├── routes/<br>
+│   │   ├── booksRoutes.js<br>
+│   │   ├── usersRoutes.js<br>
+│   │   └── ratingsRoutes.js<br>
+│   │<br>
+│   ├── utils/<br>
+│   │   └── auth.js<br>
+│   │<br>
+│   ├── server.js<br>
+│   └── config.js<br>
+│<br>
+├── Dockerfile<br>
+├── package.json<br>
+├── package-lock.json<br>
+├── .env<br>
+├── .gitignore<br>
+└── README.md<br>
+
